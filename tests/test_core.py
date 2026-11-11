@@ -13,7 +13,8 @@ class CoreTests(unittest.TestCase):
         self.tmp.cleanup()
 
     def test_encrypted_round_trip_and_wrong_password(self):
-        data = {"schema": 1, "accounts": [{"email": "private@example.com", "password": "secret"}]}
+        record = make_account("Private", "private@example.com", "private@example.com", "secret", "", [], "")
+        data = {"schema": 1, "accounts": [record]}
         encrypt(self.path, "a-long-test-password", data)
         self.assertEqual(decrypt(self.path, "a-long-test-password"), data)
         with self.assertRaises(TesterError):
