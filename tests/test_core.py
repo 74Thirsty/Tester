@@ -34,8 +34,11 @@ class CoreTests(unittest.TestCase):
         self.assertTrue(all(x.endswith("@example.com") for x in values))
         alias = generate("test", "example.com", 1, True)[0]
         self.assertRegex(alias, r"^test\+[a-z0-9]{6}@example\.com$")
+        for bad_domain in ("bad-domain", "a..example.com", "-bad.example.com", "bad_.example.com"):
+            with self.subTest(domain=bad_domain), self.assertRaises(TesterError):
+                generate("x", bad_domain, 1, False)
         with self.assertRaises(TesterError):
-            generate("x", "bad-domain", 1, False)
+            generate("x" * 58, "example.com", 1, False)
 
     def test_account_operations(self):
         data = {"accounts": []}
