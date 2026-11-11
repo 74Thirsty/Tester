@@ -45,5 +45,37 @@ class CoreTests(unittest.TestCase):
             add_account(data, make_account("example", "a@example.com", "", "", "", [], ""))
 
 
+    def test_create_does_not_clobber_existing_vault(self):
+        self.path.write_text("keep me")
+        with self.assertRaises(TesterError):
+            encrypt(self.path, "a-long-test-password", {"schema": 1, "accounts": []}, create=True)
+        self.assertEqual(self.path.read_text(), "keep me")
+
+    def test_symlink_vault_is_rejected(self):
+        target = Path(self.tmp.name) / "real.json"
+        target.write_text("{}")
+        link = Path(self.tmp.name) / "link.json"
+        try:
+            link.symlink_to(target)
+        except (OSError, NotImplementedError):
+            self.skipTest("Symlinks are unavailable on this platform")
+        with self.assertRaises(TesterError):
+            decrypt(link, "password")
+        with self.assertRaises(TesterError):
+            encrypt(link, "password", {"schema": 1, "accounts": []})
+
+    def test_invalid_crypto_metadata_and_schema_are_rejected(self):
+        encrypt(self.path, "a-long-test-password", {"schema": 1, "accounts": []})
+        box = __import__("json").loads(self.path.read_text())
+        box["kdf"] = "untrusted"
+        self.path.write_text(__import__("json").dumps(box))
+        with self.assertRaises(TesterError):
+            decrypt(self.path, "a-long-test-password")
+
+    def test_sign_in_url_rejects_embedded_credentials(self):
+        with self.assertRaises(TesterError):
+            make_account("Example", "a@example.com", "", "", "https://user:pass@example.com/login", [], "")
+
+
 if __name__ == "__main__":
     unittest.main()
