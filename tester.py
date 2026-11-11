@@ -58,12 +58,11 @@ def b64(value: bytes) -> str:
 
 
 def encrypt(path: Path, password: str, data: dict, *, create: bool = False) -> None:
+    """Write an authenticated vault atomically without changing parent-directory permissions."""
     path = path.expanduser()
     path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
-    try:
-        os.chmod(path.parent, 0o700)
-    except OSError:
-        pass
+    if path.is_symlink():
+        raise TesterError("Refusing to read or replace a vault symlink.")
     salt, nonce = secrets.token_bytes(16), secrets.token_bytes(12)
     ciphertext = AESGCM(derive(password, salt)).encrypt(
         nonce, json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode(), AAD
@@ -78,38 +77,69 @@ def encrypt(path: Path, password: str, data: dict, *, create: bool = False) -> N
             out.write(envelope)
             out.flush()
             os.fsync(out.fileno())
-        if create and path.exists():
-            raise TesterError(f"Vault already exists: {path}")
-        os.replace(tmp, path)
+        if create:
+            try:
+                os.link(tmp, path)
+            except FileExistsError as exc:
+                raise TesterError(f"Vault already exists: {path}") from exc
+            except OSError as exc:
+                if path.exists():
+                    raise TesterError(f"Vault already exists: {path}") from exc
+                raise TesterError(f"Could not safely create vault: {exc}") from exc
+        else:
+            if path.exists() and not path.is_file():
+                raise TesterError("Vault path is not a regular file.")
+            os.replace(tmp, path)
+            tmp = ""
         try:
-            os.chmod(path, 0o600)
+            if os.name != "nt":
+                os.chmod(path, 0o600)
         except OSError:
             pass
     finally:
-        if os.path.exists(tmp):
+        if tmp and os.path.exists(tmp):
             os.unlink(tmp)
-
 
 def decrypt(path: Path, password: str) -> dict:
     try:
+        if path.is_symlink():
+            raise TesterError("Refusing to open a vault symlink.")
+        if not path.is_file():
+            raise TesterError("Vault does not exist or is not a regular file.")
+        if path.stat().st_size > 16 * 1024 * 1024:
+            raise TesterError("Vault exceeds the 16 MiB safety limit.")
         box = json.loads(path.read_text(encoding="utf-8"))
-        if box.get("version") != 1:
-            raise TesterError("Unsupported vault version.")
-        salt, nonce = base64.b64decode(box["salt"], validate=True), base64.b64decode(box["nonce"], validate=True)
-        if len(salt) != 16 or len(nonce) != 12:
-            raise ValueError("Invalid salt or nonce")
-        plain = AESGCM(derive(password, salt)).decrypt(
-            nonce, base64.b64decode(box["ciphertext"], validate=True), AAD
-        )
-        data = json.loads(plain.decode())
-        if data.get("schema") != 1 or not isinstance(data.get("accounts"), list):
+        if not isinstance(box, dict) or box.get("version") != 1:
+            raise TesterError("Unsupported or invalid vault format.")
+        if box.get("kdf") != "scrypt-n32768-r8-p1" or box.get("cipher") != "AES-256-GCM":
+            raise TesterError("Vault cryptographic parameters are unsupported or invalid.")
+        salt = base64.b64decode(box["salt"], validate=True)
+        nonce = base64.b64decode(box["nonce"], validate=True)
+        encrypted = base64.b64decode(box["ciphertext"], validate=True)
+        if len(salt) != 16 or len(nonce) != 12 or len(encrypted) < 16:
+            raise ValueError("Invalid salt, nonce, or ciphertext length")
+        plain = AESGCM(derive(password, salt)).decrypt(nonce, encrypted, AAD)
+        data = json.loads(plain.decode("utf-8"))
+        if not isinstance(data, dict) or data.get("schema") != 1 or not isinstance(data.get("accounts"), list):
             raise TesterError("Vault data schema is invalid.")
+        required = {"id", "service", "email", "username", "password", "login_url", "status", "tags", "notes", "created_at", "updated_at", "last_used_at"}
+        for account in data["accounts"]:
+            if not isinstance(account, dict) or not required.issubset(account):
+                raise TesterError("Vault contains an invalid account record.")
+            string_fields = ("id", "service", "email", "username", "password", "login_url", "status", "notes", "created_at", "updated_at")
+            if not all(isinstance(account[k], str) for k in string_fields):
+                raise TesterError("Vault contains invalid account field types.")
+            if not isinstance(account["tags"], list) or not all(isinstance(tag, str) for tag in account["tags"]):
+                raise TesterError("Vault contains invalid account tags.")
+            if account["last_used_at"] is not None and not isinstance(account["last_used_at"], str):
+                raise TesterError("Vault contains an invalid last-used timestamp.")
         return data
+    except TesterError:
+        raise
     except InvalidTag as exc:
         raise TesterError("Incorrect master password or vault integrity check failed.") from exc
-    except (OSError, KeyError, ValueError, TypeError, json.JSONDecodeError) as exc:
+    except (OSError, KeyError, ValueError, TypeError, UnicodeError) as exc:
         raise TesterError(f"Could not read vault: {exc}") from exc
-
 
 def password_prompt(confirm: bool = False) -> str:
     value = getpass.getpass("Master password: ")
@@ -158,8 +188,10 @@ def generate(base: str, domain: str, count: int, plus: bool) -> list[str]:
 def make_account(service: str, email: str, username: str, secret: str, url: str,
                  tags: list[str], notes: str) -> dict:
     email = valid_email(email)
-    if url and (urlparse(url).scheme != "https" or not urlparse(url).netloc):
-        raise TesterError("Sign-in URL must be a valid HTTPS URL.")
+    if url:
+        parsed = urlparse(url.strip())
+        if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password:
+            raise TesterError("Sign-in URL must be HTTPS and cannot contain embedded credentials.")
     stamp = now()
     return {"id": uuid.uuid4().hex[:10], "service": service.strip()[:120] or "Unassigned",
             "email": email, "username": username.strip() or email, "password": secret,
