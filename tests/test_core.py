@@ -1,0 +1,49 @@
+import tempfile
+import unittest
+from pathlib import Path
+from tester import (TesterError, add_account, decrypt, encrypt, generate, make_account, find_account)
+
+
+class CoreTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.path = Path(self.tmp.name) / "vault.json"
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_encrypted_round_trip_and_wrong_password(self):
+        data = {"schema": 1, "accounts": [{"email": "private@example.com", "password": "secret"}]}
+        encrypt(self.path, "a-long-test-password", data)
+        self.assertEqual(decrypt(self.path, "a-long-test-password"), data)
+        with self.assertRaises(TesterError):
+            decrypt(self.path, "wrong-password")
+        raw = self.path.read_text()
+        self.assertNotIn("private@example.com", raw)
+        self.assertNotIn("secret", raw)
+
+    def test_create_will_not_overwrite(self):
+        encrypt(self.path, "a-long-test-password", {"schema": 1, "accounts": []}, create=True)
+        with self.assertRaises(TesterError):
+            encrypt(self.path, "another-long-password", {"schema": 1, "accounts": []}, create=True)
+
+    def test_generation(self):
+        values = generate("test user", "example.com", 20, False)
+        self.assertEqual(len(values), len(set(values)))
+        self.assertTrue(all(x.endswith("@example.com") for x in values))
+        alias = generate("test", "example.com", 1, True)[0]
+        self.assertRegex(alias, r"^test\+[a-z0-9]{6}@example\.com$")
+        with self.assertRaises(TesterError):
+            generate("x", "bad-domain", 1, False)
+
+    def test_account_operations(self):
+        data = {"accounts": []}
+        account = make_account("Example", "a@example.com", "", "secret", "", [], "")
+        add_account(data, account)
+        self.assertEqual(find_account(data, account["id"]), account)
+        with self.assertRaises(TesterError):
+            add_account(data, make_account("example", "a@example.com", "", "", "", [], ""))
+
+
+if __name__ == "__main__":
+    unittest.main()

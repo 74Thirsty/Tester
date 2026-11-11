@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tester-email-manager"
+version = "1.0.0"
+description = "Encrypted terminal email identity manager"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["cryptography>=42.0.0"]
+
+[project.optional-dependencies]
+dev = ["coverage>=7.4"]
+
+[project.scripts]
+tester = "tester:main"
+
+[tool.setuptools]
+py-modules = ["tester"]
