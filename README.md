@@ -36,11 +36,11 @@ Actual mailbox provisioning requires a provider API and authorized credentials. 
 Records can include service, email, username, password, HTTPS sign-in URL, tags, and notes. The app can copy an email/password and open the saved sign-in page. Websites control their own authentication, sessions, and logout; no universal safe mechanism can log in/out of arbitrary websites.
 
 ## Security
-All vault contents are encrypted using AES-256-GCM. A 256-bit key is derived from the master password using scrypt with a random per-vault salt. The vault is stored outside this repository, written atomically, and restricted to owner permissions where supported. Passwords are never accepted as command-line arguments. The master password is never stored.
+All vault contents are encrypted using AES-256-GCM. A 256-bit key is derived from the master password using scrypt with a random per-vault salt. Writes use a same-directory temporary file and atomic replacement; initial creation uses an atomic no-clobber link so an existing vault cannot be overwritten by a create race. On POSIX systems, the vault file is set to owner-only permissions (0600). The application does not change permissions on an existing parent directory. Symlink vault paths, unsupported crypto metadata, malformed records, and vault files larger than 16 MiB are rejected. Passwords are never accepted as command-line arguments. The master password is never stored.
 
 Default locations: Linux ~/.local/share/tester/vault.json; macOS ~/Library/Application Support/Tester/vault.json; Windows %LOCALAPPDATA%\Tester\vault.json.
 
-There is no password recovery. Keep a secure backup of the encrypted vault and remember the master password. Clipboard history may retain copied secrets; clear it after use. This is a local encrypted vault, not a completed independent security audit or replacement for full-disk encryption.
+There is no password recovery. Keep a secure backup of the encrypted vault and remember the master password. Clipboard history may retain copied secrets; clear it after use. This is a local encrypted vault, not a completed independent security audit or replacement for full-disk encryption. The interactive TUI remains unlocked until you choose Quit; close it when unattended. Concurrent use from multiple processes is not coordinated, so do not open the same vault in two Tester processes at once. Clipboard managers may retain copied secrets. Windows file ACLs are inherited from the containing directory; protect your Windows user profile and device accordingly.
 
 ## Tests
     python -m pip install -e '.[dev]'
