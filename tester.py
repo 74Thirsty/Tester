@@ -173,8 +173,14 @@ def valid_email(value: str) -> str:
 def generate(base: str, domain: str, count: int, plus: bool) -> list[str]:
     base = re.sub(r"[^a-zA-Z0-9._-]+", "", base.strip()).strip(".-")
     domain = domain.strip().lower()
-    if not base or not re.fullmatch(r"[a-z0-9.-]+\.[a-z]{2,}", domain):
-        raise TesterError("Provide a base name and valid domain, e.g. example.com.")
+    labels = domain.split(".")
+    valid_labels = all(
+        len(label) <= 63 and re.fullmatch(r"[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", label)
+        for label in labels
+    )
+    if (not base or len(base) > 57 or ".." in base or not valid_labels
+            or len(labels) < 2 or len(domain) > 253 or not re.fullmatch(r"[a-z]{2,}", labels[-1])):
+        raise TesterError("Provide a base name and valid DNS domain, e.g. example.com.")
     if not 1 <= count <= 100:
         raise TesterError("Count must be between 1 and 100.")
     addresses = []
@@ -287,7 +293,9 @@ def tui(path: Path) -> None:
                 elif choice == "o":
                     if not account["login_url"]: print("No sign-in URL saved.")
                     else:
-                        webbrowser.open(account["login_url"]); account["last_used_at"] = now()
+                        if not webbrowser.open(account["login_url"]):
+                            raise TesterError("Could not open the sign-in page in a browser.")
+                        account["last_used_at"] = now()
                         save(path, master, data); print("Opened sign-in page; website controls its own session.")
                 elif choice == "d" and input("Delete this record? [y/N] ").lower() == "y":
                     data["accounts"].remove(account); save(path, master, data); print("Deleted.")
@@ -347,7 +355,9 @@ def main() -> None:
             copy(account["password"]); print("Password copied; clear clipboard after use.")
         elif args.command == "open":
             if not account["login_url"]: raise TesterError("No sign-in URL saved.")
-            webbrowser.open(account["login_url"]); account["last_used_at"] = now()
+            if not webbrowser.open(account["login_url"]):
+                raise TesterError("Could not open the sign-in page in a browser.")
+            account["last_used_at"] = now()
             save(path, master, data); print("Opened sign-in page; authentication remains site-controlled.")
         elif args.command == "delete":
             if input(f"Delete {account['email']} ({account['service']})? [y/N] ").lower() == "y":
