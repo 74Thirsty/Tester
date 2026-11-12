@@ -24,6 +24,8 @@ Windows PowerShell: .venv\Scripts\Activate.ps1
     tester open ACCOUNT_ID
     tester copy-password ACCOUNT_ID
     tester delete ACCOUNT_ID
+    tester backup /secure/path/tester-backup.vault
+    tester restore /secure/path/tester-backup.vault
 
 Set TESTER_VAULT to override the vault path. Run tester --help for details.
 
@@ -40,7 +42,7 @@ All vault contents are encrypted using AES-256-GCM. A 256-bit key is derived fro
 
 Default locations: Linux ~/.local/share/tester/vault.json; macOS ~/Library/Application Support/Tester/vault.json; Windows %LOCALAPPDATA%\Tester\vault.json.
 
-There is no password recovery. Keep a secure backup of the encrypted vault and remember the master password. Clipboard history may retain copied secrets; clear it after use. This is a local encrypted vault, not a completed independent security audit or replacement for full-disk encryption. The interactive TUI remains unlocked until you choose Quit; close it when unattended. Concurrent use from multiple processes is not coordinated, so do not open the same vault in two Tester processes at once. Clipboard managers may retain copied secrets. Windows file ACLs are inherited from the containing directory; protect your Windows user profile and device accordingly.
+There is no password recovery. Create backups with `tester backup DESTINATION`; backups remain encrypted and are never overwritten. Restore with `tester restore BACKUP`; an existing vault is protected unless you explicitly pass `--force`. Store backups separately from the device containing the original vault, and remember the master password. Clipboard history may retain copied secrets; clear it after use. This is a local encrypted vault, not a completed independent security audit or replacement for full-disk encryption. The interactive TUI remains unlocked until you choose Quit; close it when unattended. An OS-backed cross-platform lock prevents two Tester processes from accessing the same vault simultaneously. Clipboard managers may retain copied secrets. Windows file ACLs are inherited from the containing directory; protect your Windows user profile and device accordingly.
 
 ## Tests
     python -m pip install -e '.[dev]'
