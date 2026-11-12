@@ -22,6 +22,7 @@ from urllib.parse import urlparse
 from cryptography.exceptions import InvalidTag
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
+from filelock import FileLock, Timeout as LockTimeout
 
 VERSION = "1.0.0"
 AAD = b"tester-vault-v1"
@@ -161,6 +162,47 @@ def unlock(path: Path) -> tuple[dict, str]:
 def save(path: Path, password: str, data: dict) -> None:
     data["updated_at"] = now()
     encrypt(path, password, data)
+
+
+def backup_vault(path: Path, destination: Path, password: str) -> None:
+    """Create a verified, encrypted, no-clobber copy of a vault."""
+    path, destination = path.expanduser(), destination.expanduser()
+    if path.resolve() == destination.resolve():
+        raise TesterError("Backup destination must differ from the active vault.")
+    decrypt(path, password)
+    destination.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+    if destination.exists() or destination.is_symlink():
+        raise TesterError(f"Backup destination already exists: {destination}")
+    fd, temporary = tempfile.mkstemp(prefix=".tester-backup-", dir=destination.parent)
+    try:
+        with os.fdopen(fd, "wb") as output, path.open("rb") as source:
+            shutil.copyfileobj(source, output)
+            output.flush()
+            os.fsync(output.fileno())
+        if os.name != "nt":
+            os.chmod(temporary, 0o600)
+        try:
+            os.link(temporary, destination)
+        except FileExistsError as exc:
+            raise TesterError(f"Backup destination already exists: {destination}") from exc
+        except OSError as exc:
+            if destination.exists():
+                raise TesterError(f"Backup destination already exists: {destination}") from exc
+            raise TesterError(f"Could not safely create backup: {exc}") from exc
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
+
+
+def restore_vault(path: Path, source: Path, password: str, *, force: bool = False) -> None:
+    """Restore a verified encrypted backup, refusing replacement by default."""
+    path, source = path.expanduser(), source.expanduser()
+    if path.resolve() == source.resolve():
+        raise TesterError("Restore source must differ from the active vault.")
+    data = decrypt(source, password)
+    if path.exists() and not force:
+        raise TesterError(f"Vault already exists: {path}. Use --force to replace it.")
+    encrypt(path, password, data, create=not force)
 
 
 def valid_email(value: str) -> str:
