@@ -2,6 +2,7 @@ import tempfile
 import json
 import unittest
 from pathlib import Path
+from filelock import FileLock, Timeout
 from tester import (TesterError, add_account, decrypt, encrypt, generate, make_account, find_account, backup_vault, restore_vault)
 
 
@@ -101,6 +102,15 @@ class CoreTests(unittest.TestCase):
         encrypt(self.path, "a-long-test-password", {"schema": 1, "accounts": []})
         with self.assertRaises(TesterError):
             backup_vault(self.path, Path(self.tmp.name) / "bad.vault", "wrong-password")
+
+
+    def test_vault_lock_rejects_second_writer(self):
+        lock_path = Path(self.tmp.name) / "vault.json.lock"
+        first = FileLock(str(lock_path), timeout=0)
+        with first:
+            with self.assertRaises(Timeout):
+                with FileLock(str(lock_path), timeout=0):
+                    pass
 
 
 if __name__ == "__main__":
