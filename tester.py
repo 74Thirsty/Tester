@@ -357,6 +357,11 @@ def parser() -> argparse.ArgumentParser:
     sub.add_parser("tui", help="interactive terminal menu")
     sub.add_parser("list", help="list saved identities")
     sub.add_parser("add", help="add email and website login record")
+    backup = sub.add_parser("backup", help="create a verified encrypted backup")
+    backup.add_argument("destination", type=Path)
+    restore = sub.add_parser("restore", help="restore a verified encrypted backup")
+    restore.add_argument("source", type=Path)
+    restore.add_argument("--force", action="store_true", help="replace an existing vault")
     g = sub.add_parser("generate", help="generate address candidates, not mailboxes")
     g.add_argument("--base", required=True); g.add_argument("--domain", required=True)
     g.add_argument("--count", type=int, default=1); g.add_argument("--plus", action="store_true")
@@ -371,39 +376,68 @@ def main() -> None:
     args = parser().parse_args()
     path = args.vault.expanduser()
     try:
-        if args.command == "init":
-            master = password_prompt(confirm=True)
-            data = {"schema": 1, "created_at": now(), "accounts": []}
-            encrypt(path, master, data, create=True)
-            print(f"Encrypted vault created: {path}"); return
-        if args.command == "tui":
-            tui(path); return
         if args.command == "generate":
             print("\n".join(generate(args.base, args.domain, args.count, args.plus)))
-            print("\nCandidates only. Create/verify them with your provider."); return
-        data, master = unlock(path)
-        if args.command == "list":
-            listing(data["accounts"]); return
-        if args.command == "add":
-            account = prompt_account(); add_account(data, account); save(path, master, data)
-            print(f"Saved {account['email']} ({account['id']})."); return
-        account = find_account(data, args.identifier)
-        if args.command == "show":
-            print(f"ID: {account['id']}\nService: {account['service']}\nEmail: {account['email']}\nUsername: {account['username']}\nSign-in URL: {account['login_url']}\nStatus: {account['status']}\nTags: {', '.join(account['tags'])}\nNotes: {account['notes']}\nPassword: {'(saved; use copy-password)' if account['password'] else '(not saved)'}")
-        elif args.command == "copy":
-            copy(account["email"]); print("Email copied.")
-        elif args.command == "copy-password":
-            if not account["password"]: raise TesterError("No password saved for this account.")
-            copy(account["password"]); print("Password copied; clear clipboard after use.")
-        elif args.command == "open":
-            if not account["login_url"]: raise TesterError("No sign-in URL saved.")
-            if not webbrowser.open(account["login_url"]):
-                raise TesterError("Could not open the sign-in page in a browser.")
-            account["last_used_at"] = now()
-            save(path, master, data); print("Opened sign-in page; authentication remains site-controlled.")
-        elif args.command == "delete":
-            if input(f"Delete {account['email']} ({account['service']})? [y/N] ").lower() == "y":
-                data["accounts"].remove(account); save(path, master, data); print("Deleted.")
+            print("\nCandidates only. Create/verify them with your provider.")
+            return
+        path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+        # Cross-platform OS-backed lock prevents lost updates from simultaneous Tester processes.
+        with FileLock(str(path) + ".lock", timeout=0):
+            if args.command == "init":
+                master = password_prompt(confirm=True)
+                data = {"schema": 1, "created_at": now(), "accounts": []}
+                encrypt(path, master, data, create=True)
+                print(f"Encrypted vault created: {path}")
+                return
+            if args.command == "tui":
+                tui(path)
+                return
+            if args.command == "restore":
+                master = password_prompt()
+                restore_vault(path, args.source, master, force=args.force)
+                print(f"Encrypted vault restored from: {args.source}")
+                return
+            data, master = unlock(path)
+            if args.command == "backup":
+                backup_vault(path, args.destination, master)
+                print(f"Encrypted backup created: {args.destination}")
+                return
+            if args.command == "list":
+                listing(data["accounts"])
+                return
+            if args.command == "add":
+                account = prompt_account()
+                add_account(data, account)
+                save(path, master, data)
+                print(f"Saved {account['email']} ({account['id']}).")
+                return
+            account = find_account(data, args.identifier)
+            if args.command == "show":
+                print(f"ID: {account['id']}\nService: {account['service']}\nEmail: {account['email']}\nUsername: {account['username']}\nSign-in URL: {account['login_url']}\nStatus: {account['status']}\nTags: {', '.join(account['tags'])}\nNotes: {account['notes']}\nPassword: {'(saved; use copy-password)' if account['password'] else '(not saved)'}")
+            elif args.command == "copy":
+                copy(account["email"])
+                print("Email copied.")
+            elif args.command == "copy-password":
+                if not account["password"]:
+                    raise TesterError("No password saved for this account.")
+                copy(account["password"])
+                print("Password copied; clear clipboard after use.")
+            elif args.command == "open":
+                if not account["login_url"]:
+                    raise TesterError("No sign-in URL saved.")
+                if not webbrowser.open(account["login_url"]):
+                    raise TesterError("Could not open the sign-in page in a browser.")
+                account["last_used_at"] = now()
+                save(path, master, data)
+                print("Opened sign-in page; authentication remains site-controlled.")
+            elif args.command == "delete":
+                if input(f"Delete {account['email']} ({account['service']})? [y/N] ").lower() == "y":
+                    data["accounts"].remove(account)
+                    save(path, master, data)
+                    print("Deleted.")
+    except LockTimeout as exc:
+        print("tester: this vault is already open in another Tester process.", file=sys.stderr)
+        raise SystemExit(2) from exc
     except (TesterError, ValueError, OSError, subprocess.SubprocessError) as exc:
         print(f"tester: {exc}", file=sys.stderr)
         raise SystemExit(1)
