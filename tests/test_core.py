@@ -1,7 +1,8 @@
 import tempfile
+import json
 import unittest
 from pathlib import Path
-from tester import (TesterError, add_account, decrypt, encrypt, generate, make_account, find_account)
+from tester import (TesterError, add_account, decrypt, encrypt, generate, make_account, find_account, backup_vault, restore_vault)
 
 
 class CoreTests(unittest.TestCase):
@@ -79,6 +80,27 @@ class CoreTests(unittest.TestCase):
     def test_sign_in_url_rejects_embedded_credentials(self):
         with self.assertRaises(TesterError):
             make_account("Example", "a@example.com", "", "", "https://user:pass@example.com/login", [], "")
+
+
+    def test_encrypted_backup_and_restore(self):
+        account = make_account("Example", "a@example.com", "", "secret", "", [], "")
+        original = {"schema": 1, "accounts": [account]}
+        encrypt(self.path, "a-long-test-password", original)
+        backup = Path(self.tmp.name) / "backup.vault"
+        backup_vault(self.path, backup, "a-long-test-password")
+        restored = Path(self.tmp.name) / "restored.json"
+        restore_vault(restored, backup, "a-long-test-password")
+        self.assertEqual(decrypt(restored, "a-long-test-password"), original)
+        with self.assertRaises(TesterError):
+            restore_vault(restored, backup, "a-long-test-password")
+        restore_vault(restored, backup, "a-long-test-password", force=True)
+        with self.assertRaises(TesterError):
+            backup_vault(self.path, backup, "a-long-test-password")
+
+    def test_backup_rejects_wrong_password(self):
+        encrypt(self.path, "a-long-test-password", {"schema": 1, "accounts": []})
+        with self.assertRaises(TesterError):
+            backup_vault(self.path, Path(self.tmp.name) / "bad.vault", "wrong-password")
 
 
 if __name__ == "__main__":
