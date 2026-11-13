@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Tester: encrypted local email identity manager."""
 from __future__ import annotations
 
