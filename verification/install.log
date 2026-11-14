@@ -1,0 +1,17 @@
+Installation evidence transcribed from the actual command output, followed by captured environment checks in environment.log.
+
+COMMAND: python3 -m venv /tmp/tester-verification-venv
+RESULT: exit 0; fresh environment without system site packages.
+COMMAND: /tmp/tester-verification-venv/bin/python -m pip install -e '.[dev]'
+FIRST ATTEMPT: sandbox DNS resolution failed while obtaining setuptools (environment restriction).
+RETRY: same command with approved network access; exit 0.
+OUTPUT:
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+  Building editable for tester-email-manager (pyproject.toml): finished with status 'done'
+Successfully built tester-email-manager
+Successfully installed cffi-2.1.1 coverage-7.17.3 cryptography-50.0.2 filelock-3.32.7 pycparser-3.12 tester-email-manager-1.0.0
+
+Subsequent tests invoke /tmp/tester-verification-venv/bin/tester from disposable directories outside the repository, as well as direct tester.py execution.

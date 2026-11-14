@@ -1,0 +1,23 @@
+{
+  "base_commit": "471becb38018ecee7615e969ed81ce0ea63d6203",
+  "working_tree_changes": true,
+  "python": "3.11.2",
+  "os": "Linux",
+  "sha256": {
+    "README.md": "200184e82c881f49ccd83158ff1b80a92622b6333122023916843a50a2b5ee44",
+    "pyproject.toml": "f551d4490cb41366ea42800d811641d506585390f92dd71ffa2e15f1f1678372",
+    "tester.py": "92abbb8e41a28279f0fa7f0735a5de428e0072bb37fc3f42ce6a006a2938fd81",
+    "tester_platforms.py": "db911279b15171b0839c65eeee540e233732876b735aa8bb4bbb9349da642f0f",
+    "tester_sessions.py": "4ddd3a29ed5f737e704bf0e12c44ab2ad50096c3466526ea727882878e289c23",
+    "tests/test_core.py": "cf1423a38a504121b107a6b4e4e5cc830a3857e52a3007316e87c898a387016b",
+    "tests/test_platforms.py": "aba644b58b474d43795422d4dc0f477551d299f52bfa2b609d90f6bec7a08ca9",
+    "tests/test_workflows.py": "bd79450f64ea55191726685aec1085475a932920e8c6ea906325c456e4fbb911",
+    "verification/REPORT.md": "d7f0daad07b6c840e8d3fe1a3198c22f2c030558ea5bc7cf1aad219ffcb26488",
+    "verification/check_desktop.py": "a26b1336abc1041ca412c793dc52c31ed468285d00a8ee12dea546fccf12e06a",
+    "verification/check_sessions.py": "0e98904ccebc29efcf080b78d99c4ecaad98d011f1cf5e2a4d7e7682eb8a7ad1",
+    "verification/check_worker_workflows.py": "36ee847c186a6799b39f9bd1252a92e0eb8ac9847abbe031a03c34ee520a8fb8",
+    "verification/inspect_public_portal.py": "08c4ef7ea45527197a6069598e3e6e892cb713731e6ba3099e7455d8e4380210",
+    "verification/probe_provider_portals.py": "a11bf861f7fea622c6129fcfd7a3ca84f281b56d55278ae635eb900064ecd65c",
+    "verification/verify_live_accounts.py": "b1ad38cebc590ad16b13a163c0d841d293194bc018b9cfbb1971195ee30f3254"
+  }
+}

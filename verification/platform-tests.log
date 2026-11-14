@@ -1,0 +1,58 @@
+test_account_operations (test_core.CoreTests.test_account_operations) ... ok
+test_backup_rejects_wrong_password (test_core.CoreTests.test_backup_rejects_wrong_password) ... ok
+test_create_does_not_clobber_existing_vault (test_core.CoreTests.test_create_does_not_clobber_existing_vault) ... ok
+test_create_will_not_overwrite (test_core.CoreTests.test_create_will_not_overwrite) ... ok
+test_encrypted_backup_and_restore (test_core.CoreTests.test_encrypted_backup_and_restore) ... ok
+test_encrypted_round_trip_and_wrong_password (test_core.CoreTests.test_encrypted_round_trip_and_wrong_password) ... ok
+test_generation (test_core.CoreTests.test_generation) ... ok
+test_invalid_crypto_metadata_and_schema_are_rejected (test_core.CoreTests.test_invalid_crypto_metadata_and_schema_are_rejected) ... ok
+test_sign_in_url_rejects_embedded_credentials (test_core.CoreTests.test_sign_in_url_rejects_embedded_credentials) ... ok
+test_symlink_vault_is_rejected (test_core.CoreTests.test_symlink_vault_is_rejected) ... ok
+test_vault_lock_rejects_second_writer (test_core.CoreTests.test_vault_lock_rejects_second_writer) ... ok
+test_actual_missing_browser_startup_is_sanitized (test_platforms.PlatformTests.test_actual_missing_browser_startup_is_sanitized) ... /usr/lib/python3.11/subprocess.py:1125: ResourceWarning: subprocess 4 is still running
+  _warn("subprocess %s is still running" % self.pid,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_add_existing_is_not_authentication_and_profiles_unique (test_platforms.PlatformTests.test_add_existing_is_not_authentication_and_profiles_unique) ... ok
+test_auth_origin_without_form_is_not_signout_proof (test_platforms.PlatformTests.test_auth_origin_without_form_is_not_signout_proof) ... ok
+test_browser_action_save_failure_does_not_claim_success (test_platforms.PlatformTests.test_browser_action_save_failure_does_not_claim_success) ... switch: Google / Gmail | expected identity: controlled@example.com | isolated browser profile
+ok
+test_checkpoint_resume_does_not_navigate_away (test_platforms.PlatformTests.test_checkpoint_resume_does_not_navigate_away) ... ok
+test_cli_and_menu_platform_record_lifecycle (test_platforms.PlatformTests.test_cli_and_menu_platform_record_lifecycle) ... ok
+test_correct_signup_identifier_keeps_profile_but_invalidates_status (test_platforms.PlatformTests.test_correct_signup_identifier_keeps_profile_but_invalidates_status) ... ok
+test_corrupt_and_shared_profiles_rejected (test_platforms.PlatformTests.test_corrupt_and_shared_profiles_rejected) ... ok
+test_failed_remove_save_reports_partial_local_effect (test_platforms.PlatformTests.test_failed_remove_save_reports_partial_local_effect) ... ok
+test_locked_vault_never_starts_browser (test_platforms.PlatformTests.test_locked_vault_never_starts_browser) ... ok
+test_menu_number_selects_exact_platform_record (test_platforms.PlatformTests.test_menu_number_selects_exact_platform_record) ... ok
+test_no_record_when_add_write_fails (test_platforms.PlatformTests.test_no_record_when_add_write_fails) ... ok
+test_observation_and_fresh_verification_are_distinct (test_platforms.PlatformTests.test_observation_and_fresh_verification_are_distinct) ... ok
+test_profile_permissions_paths_and_symlinks (test_platforms.PlatformTests.test_profile_permissions_paths_and_symlinks) ... ok
+test_profile_request_failure_preserves_last_observation (test_platforms.PlatformTests.test_profile_request_failure_preserves_last_observation) ... switch: Google / Gmail | expected identity: controlled@example.com | isolated browser profile
+ok
+test_provider_urls_separate_from_api_authorization (test_platforms.PlatformTests.test_provider_urls_separate_from_api_authorization) ... ok
+test_remove_does_not_call_provider_signout (test_platforms.PlatformTests.test_remove_does_not_call_provider_signout) ... ok
+test_signout_wrong_identity_is_refused (test_platforms.PlatformTests.test_signout_wrong_identity_is_refused) ... ok
+test_signup_navigation_failure_returns_nonzero_but_keeps_intent (test_platforms.PlatformTests.test_signup_navigation_failure_returns_nonzero_but_keeps_intent) ... ok
+test_signup_remains_pending_at_checkpoint (test_platforms.PlatformTests.test_signup_remains_pending_at_checkpoint) ... ok
+test_tui_retains_saved_signup_intent_when_browser_fails (test_platforms.PlatformTests.test_tui_retains_saved_signup_intent_when_browser_fails) ... ok
+test_windows_acl_failure_is_sanitized (test_platforms.PlatformTests.test_windows_acl_failure_is_sanitized) ... ok
+test_actual_terminal_password_hidden_and_menu (test_workflows.RegressionTests.test_actual_terminal_password_hidden_and_menu) ... ok
+test_clipboard_owner_cannot_inherit_cli_output (test_workflows.RegressionTests.test_clipboard_owner_cannot_inherit_cli_output) ... ok
+test_collision_retry_and_exhaustion (test_workflows.RegressionTests.test_collision_retry_and_exhaustion) ... ok
+test_desktop_dispatch_and_failure (test_workflows.RegressionTests.test_desktop_dispatch_and_failure) ... ok
+test_oversized_write_preserves_vault (test_workflows.RegressionTests.test_oversized_write_preserves_vault) ... ok
+test_platform_paths_and_environment_override (test_workflows.RegressionTests.test_platform_paths_and_environment_override) ... ok
+test_plus_never_silently_changes_mailbox (test_workflows.RegressionTests.test_plus_never_silently_changes_mailbox) ... ok
+test_tui_save_failure_rolls_back (test_workflows.RegressionTests.test_tui_save_failure_rolls_back) ... ok
+test_untrusted_record_urls_and_corrupt_envelopes (test_workflows.RegressionTests.test_untrusted_record_urls_and_corrupt_envelopes) ... ok
+test_ambiguous_email_requires_id (test_workflows.WorkflowTests.test_ambiguous_email_requires_id) ... ok
+test_cli_lifecycle_both_entrypoints (test_workflows.WorkflowTests.test_cli_lifecycle_both_entrypoints) ... ok
+test_eof_invalid_records_and_lock (test_workflows.WorkflowTests.test_eof_invalid_records_and_lock) ... ok
+test_generate_and_errors (test_workflows.WorkflowTests.test_generate_and_errors) ... ok
+test_missing_optional_fields_and_desktop_failures (test_workflows.WorkflowTests.test_missing_optional_fields_and_desktop_failures) ... ok
+test_tui_full_menu_and_reopen (test_workflows.WorkflowTests.test_tui_full_menu_and_reopen) ... ok
+
+----------------------------------------------------------------------
+Ran 48 tests in 28.180s
+
+OK

@@ -1,0 +1,48 @@
+{"command": ["/tmp/tester-platform-clean/bin/tester", "add-existing", "google", "google0@example.com"], "menu_inputs": [], "exit": 0, "observed_states": [], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "d1fdaf28c2"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "add-existing", "google", "google1@example.com"], "menu_inputs": [], "exit": 0, "observed_states": [], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "0b66c1a60e"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "d1fdaf28c2"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/python", "/home/thompy420/GitHub/Tester/tester.py", "switch", "0b66c1a60e"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "d1fdaf28c2"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/python", "/home/thompy420/GitHub/Tester/tester.py", "switch", "0b66c1a60e"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "d1fdaf28c2"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/python", "/home/thompy420/GitHub/Tester/tester.py", "switch", "0b66c1a60e"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "d1fdaf28c2"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/python", "/home/thompy420/GitHub/Tester/tester.py", "switch", "0b66c1a60e"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "tui"], "menu_inputs": ["w", "d1fdaf28c2", "i", "0b66c1a60e", "v", "d1fdaf28c2", "q"], "exit": 0, "observed_states": ["authenticated", "authenticated", "authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "verify", "d1fdaf28c2"], "menu_inputs": [], "exit": 3, "observed_states": [], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "verify", "d1fdaf28c2"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+PASS google: real fixture connection failure sanitized; subsequent navigation recovered
+{"command": ["/tmp/tester-platform-clean/bin/tester", "signout", "d1fdaf28c2"], "menu_inputs": [], "exit": 0, "observed_states": ["signed_out"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "d1fdaf28c2"], "menu_inputs": [], "exit": 3, "observed_states": ["authentication_required"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "0b66c1a60e"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "verify-signout", "d1fdaf28c2"], "menu_inputs": [], "exit": 0, "observed_states": ["signed_out"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "tui"], "menu_inputs": ["r", "d1fdaf28c2", "y", "d1fdaf28c2", "x", "0b66c1a60e", "y", "0b66c1a60e", "u", "d1fdaf28c2", "corrected-google@example.com", "b", "d1fdaf28c2", "q"], "exit": 0, "observed_states": ["authentication_required", "signed_out", "signed_out", "signed_out"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "remove", "d1fdaf28c2"], "menu_inputs": [], "exit": 0, "observed_states": [], "vault_password": "omitted"}
+PASS google LOCAL FIXTURE: installed/direct switch, menu W/I/V, exact identity, process reuse, persisted observations, sign-out verification, unaffected peer, local remove
+{"command": ["/tmp/tester-platform-clean/bin/tester", "add-existing", "microsoft", "microsoft0@example.com"], "menu_inputs": [], "exit": 0, "observed_states": [], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "c8e7e5d58d"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "add-existing", "microsoft", "microsoft1@example.com"], "menu_inputs": [], "exit": 0, "observed_states": [], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "c44c1a5ce1"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "c8e7e5d58d"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/python", "/home/thompy420/GitHub/Tester/tester.py", "switch", "c44c1a5ce1"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "c8e7e5d58d"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/python", "/home/thompy420/GitHub/Tester/tester.py", "switch", "c44c1a5ce1"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "c8e7e5d58d"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/python", "/home/thompy420/GitHub/Tester/tester.py", "switch", "c44c1a5ce1"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "c8e7e5d58d"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/python", "/home/thompy420/GitHub/Tester/tester.py", "switch", "c44c1a5ce1"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "tui"], "menu_inputs": ["w", "c8e7e5d58d", "i", "c44c1a5ce1", "v", "c8e7e5d58d", "q"], "exit": 0, "observed_states": ["authenticated", "authenticated", "authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "verify", "c8e7e5d58d"], "menu_inputs": [], "exit": 3, "observed_states": [], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "verify", "c8e7e5d58d"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+PASS microsoft: real fixture connection failure sanitized; subsequent navigation recovered
+{"command": ["/tmp/tester-platform-clean/bin/tester", "signout", "c8e7e5d58d"], "menu_inputs": [], "exit": 0, "observed_states": ["signed_out"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "c8e7e5d58d"], "menu_inputs": [], "exit": 3, "observed_states": ["authentication_required"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "switch", "c44c1a5ce1"], "menu_inputs": [], "exit": 0, "observed_states": ["authenticated"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "verify-signout", "c8e7e5d58d"], "menu_inputs": [], "exit": 0, "observed_states": ["signed_out"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "tui"], "menu_inputs": ["r", "c8e7e5d58d", "y", "c8e7e5d58d", "x", "c44c1a5ce1", "y", "c44c1a5ce1", "u", "c8e7e5d58d", "corrected-microsoft@example.com", "b", "c8e7e5d58d", "q"], "exit": 0, "observed_states": ["authentication_required", "signed_out", "signed_out", "signed_out"], "vault_password": "omitted"}
+{"command": ["/tmp/tester-platform-clean/bin/tester", "remove", "c8e7e5d58d"], "menu_inputs": [], "exit": 0, "observed_states": [], "vault_password": "omitted"}
+PASS microsoft LOCAL FIXTURE: installed/direct switch, menu W/I/V, exact identity, process reuse, persisted observations, sign-out verification, unaffected peer, local remove
+{"command": ["/tmp/tester-platform-clean/bin/tester", "close-sessions"], "menu_inputs": [], "exit": 0, "observed_states": [], "vault_password": "omitted"}
+{"google": {"n": 8, "median_ms": 433.6, "slowest_ms": 492.68}, "microsoft": {"n": 8, "median_ms": 459.4, "slowest_ms": 486.05}}

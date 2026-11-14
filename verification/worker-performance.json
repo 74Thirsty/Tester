@@ -1,0 +1,293 @@
+{
+  "conditions": "Real CLI and browser workers; local synthetic provider only; includes Python startup, synthetic vault unlock/save and IPC; excludes human typing and real provider time",
+  "samples": [
+    {
+      "platform": "google",
+      "kind": "initial_worker_cli",
+      "elapsed_ms": 844.72
+    },
+    {
+      "platform": "google",
+      "kind": "initial_worker_cli",
+      "elapsed_ms": 826.14
+    },
+    {
+      "platform": "google",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 474.66,
+      "timings": {
+        "activation_ms": 1.5,
+        "client_total_ms": 151.55,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 89.62,
+        "navigation_ms": 14.69,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 60.43,
+        "usable_page_ms": 91.12,
+        "vault_save_ms": 120.15
+      }
+    },
+    {
+      "platform": "google",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 441.37,
+      "timings": {
+        "activation_ms": 1.68,
+        "client_total_ms": 152.0,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 93.01,
+        "navigation_ms": 12.49,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 57.31,
+        "usable_page_ms": 94.69,
+        "vault_save_ms": 88.63
+      }
+    },
+    {
+      "platform": "google",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 398.99,
+      "timings": {
+        "activation_ms": 1.45,
+        "client_total_ms": 101.08,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 82.94,
+        "navigation_ms": 8.94,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 16.69,
+        "usable_page_ms": 84.39,
+        "vault_save_ms": 93.6
+      }
+    },
+    {
+      "platform": "google",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 403.92,
+      "timings": {
+        "activation_ms": 1.52,
+        "client_total_ms": 101.07,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 80.09,
+        "navigation_ms": 14.81,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 19.46,
+        "usable_page_ms": 81.61,
+        "vault_save_ms": 87.81
+      }
+    },
+    {
+      "platform": "google",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 425.82,
+      "timings": {
+        "activation_ms": 1.25,
+        "client_total_ms": 101.64,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 81.86,
+        "navigation_ms": 14.9,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 18.53,
+        "usable_page_ms": 83.11,
+        "vault_save_ms": 112.49
+      }
+    },
+    {
+      "platform": "google",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 492.68,
+      "timings": {
+        "activation_ms": 1.39,
+        "client_total_ms": 151.8,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 83.01,
+        "navigation_ms": 8.51,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 67.4,
+        "usable_page_ms": 84.4,
+        "vault_save_ms": 124.65
+      }
+    },
+    {
+      "platform": "google",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 383.79,
+      "timings": {
+        "activation_ms": 1.45,
+        "client_total_ms": 101.2,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 80.17,
+        "navigation_ms": 13.36,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 19.58,
+        "usable_page_ms": 81.62,
+        "vault_save_ms": 88.04
+      }
+    },
+    {
+      "platform": "google",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 458.95,
+      "timings": {
+        "activation_ms": 1.55,
+        "client_total_ms": 151.67,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 82.18,
+        "navigation_ms": 8.6,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 67.94,
+        "usable_page_ms": 83.73,
+        "vault_save_ms": 89.93
+      }
+    },
+    {
+      "platform": "microsoft",
+      "kind": "initial_worker_cli",
+      "elapsed_ms": 836.74
+    },
+    {
+      "platform": "microsoft",
+      "kind": "initial_worker_cli",
+      "elapsed_ms": 847.29
+    },
+    {
+      "platform": "microsoft",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 457.06,
+      "timings": {
+        "activation_ms": 1.32,
+        "client_total_ms": 151.22,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 99.44,
+        "navigation_ms": 13.14,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 50.46,
+        "usable_page_ms": 100.75,
+        "vault_save_ms": 102.47
+      }
+    },
+    {
+      "platform": "microsoft",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 469.26,
+      "timings": {
+        "activation_ms": 1.79,
+        "client_total_ms": 152.57,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 102.38,
+        "navigation_ms": 15.07,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 48.4,
+        "usable_page_ms": 104.17,
+        "vault_save_ms": 107.57
+      }
+    },
+    {
+      "platform": "microsoft",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 446.85,
+      "timings": {
+        "activation_ms": 1.41,
+        "client_total_ms": 151.2,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 104.27,
+        "navigation_ms": 15.41,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 45.52,
+        "usable_page_ms": 105.68,
+        "vault_save_ms": 96.26
+      }
+    },
+    {
+      "platform": "microsoft",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 461.75,
+      "timings": {
+        "activation_ms": 1.32,
+        "client_total_ms": 152.2,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 101.46,
+        "navigation_ms": 14.63,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 49.42,
+        "usable_page_ms": 102.78,
+        "vault_save_ms": 95.93
+      }
+    },
+    {
+      "platform": "microsoft",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 452.09,
+      "timings": {
+        "activation_ms": 1.32,
+        "client_total_ms": 151.98,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 83.85,
+        "navigation_ms": 8.77,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 66.81,
+        "usable_page_ms": 85.17,
+        "vault_save_ms": 95.85
+      }
+    },
+    {
+      "platform": "microsoft",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 486.05,
+      "timings": {
+        "activation_ms": 5.44,
+        "client_total_ms": 152.42,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 90.78,
+        "navigation_ms": 15.99,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 56.2,
+        "usable_page_ms": 96.22,
+        "vault_save_ms": 113.64
+      }
+    },
+    {
+      "platform": "microsoft",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 398.91,
+      "timings": {
+        "activation_ms": 1.52,
+        "client_total_ms": 101.06,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 86.84,
+        "navigation_ms": 8.85,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 12.7,
+        "usable_page_ms": 88.36,
+        "vault_save_ms": 92.08
+      }
+    },
+    {
+      "platform": "microsoft",
+      "kind": "warm_worker_cli",
+      "elapsed_ms": 468.68,
+      "timings": {
+        "activation_ms": 1.32,
+        "client_total_ms": 151.62,
+        "cold_worker": false,
+        "navigation_and_observation_ms": 95.75,
+        "navigation_ms": 11.17,
+        "selection_ms": 0.04,
+        "startup_ipc_and_scheduling_ms": 54.55,
+        "usable_page_ms": 97.06,
+        "vault_save_ms": 92.79
+      }
+    }
+  ],
+  "summary": {
+    "google": {
+      "n": 8,
+      "median_ms": 433.6,
+      "slowest_ms": 492.68
+    },
+    "microsoft": {
+      "n": 8,
+      "median_ms": 459.4,
+      "slowest_ms": 486.05
+    }
+  }
+}

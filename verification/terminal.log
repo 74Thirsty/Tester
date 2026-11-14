@@ -1,0 +1,40 @@
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', '--vault', '/tmp/tmpodl6saxz/vault', 'tui']
+PASSWORD INPUT: omitted; verified absent from terminal echo
+Welcome to Tester — create your encrypted local vault.
+Master password: 
+Confirm master password: 
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+No accounts saved yet.
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: g
+Base name: terminal
+Domain: example.com
+Count (1-100): 1
+Plus aliases for an existing mailbox? [y/N] y
+terminal+30h5ks@example.com
+Candidates only: not saved, provisioned, or delivery-verified. Use Add to save a record.
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+No accounts saved yet.
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: q
+Vault locked. Goodbye.

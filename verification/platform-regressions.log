@@ -1,0 +1,32 @@
+test_actual_missing_browser_startup_is_sanitized (test_platforms.PlatformTests.test_actual_missing_browser_startup_is_sanitized) ... /usr/lib/python3.11/subprocess.py:1125: ResourceWarning: subprocess 4 is still running
+  _warn("subprocess %s is still running" % self.pid,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_add_existing_is_not_authentication_and_profiles_unique (test_platforms.PlatformTests.test_add_existing_is_not_authentication_and_profiles_unique) ... ok
+test_auth_origin_without_form_is_not_signout_proof (test_platforms.PlatformTests.test_auth_origin_without_form_is_not_signout_proof) ... ok
+test_browser_action_save_failure_does_not_claim_success (test_platforms.PlatformTests.test_browser_action_save_failure_does_not_claim_success) ... switch: Google / Gmail | expected identity: controlled@example.com | isolated browser profile
+ok
+test_checkpoint_resume_does_not_navigate_away (test_platforms.PlatformTests.test_checkpoint_resume_does_not_navigate_away) ... ok
+test_cli_and_menu_platform_record_lifecycle (test_platforms.PlatformTests.test_cli_and_menu_platform_record_lifecycle) ... ok
+test_correct_signup_identifier_keeps_profile_but_invalidates_status (test_platforms.PlatformTests.test_correct_signup_identifier_keeps_profile_but_invalidates_status) ... ok
+test_corrupt_and_shared_profiles_rejected (test_platforms.PlatformTests.test_corrupt_and_shared_profiles_rejected) ... ok
+test_failed_remove_save_reports_partial_local_effect (test_platforms.PlatformTests.test_failed_remove_save_reports_partial_local_effect) ... ok
+test_locked_vault_never_starts_browser (test_platforms.PlatformTests.test_locked_vault_never_starts_browser) ... ok
+test_menu_number_selects_exact_platform_record (test_platforms.PlatformTests.test_menu_number_selects_exact_platform_record) ... ok
+test_no_record_when_add_write_fails (test_platforms.PlatformTests.test_no_record_when_add_write_fails) ... ok
+test_observation_and_fresh_verification_are_distinct (test_platforms.PlatformTests.test_observation_and_fresh_verification_are_distinct) ... ok
+test_profile_permissions_paths_and_symlinks (test_platforms.PlatformTests.test_profile_permissions_paths_and_symlinks) ... ok
+test_profile_request_failure_preserves_last_observation (test_platforms.PlatformTests.test_profile_request_failure_preserves_last_observation) ... switch: Google / Gmail | expected identity: controlled@example.com | isolated browser profile
+ok
+test_provider_urls_separate_from_api_authorization (test_platforms.PlatformTests.test_provider_urls_separate_from_api_authorization) ... ok
+test_remove_does_not_call_provider_signout (test_platforms.PlatformTests.test_remove_does_not_call_provider_signout) ... ok
+test_signout_wrong_identity_is_refused (test_platforms.PlatformTests.test_signout_wrong_identity_is_refused) ... ok
+test_signup_navigation_failure_returns_nonzero_but_keeps_intent (test_platforms.PlatformTests.test_signup_navigation_failure_returns_nonzero_but_keeps_intent) ... ok
+test_signup_remains_pending_at_checkpoint (test_platforms.PlatformTests.test_signup_remains_pending_at_checkpoint) ... ok
+test_tui_retains_saved_signup_intent_when_browser_fails (test_platforms.PlatformTests.test_tui_retains_saved_signup_intent_when_browser_fails) ... ok
+test_windows_acl_failure_is_sanitized (test_platforms.PlatformTests.test_windows_acl_failure_is_sanitized) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 8.914s
+
+OK

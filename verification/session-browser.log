@@ -1,0 +1,4 @@
+PASS google adapter against LOCAL FIXTURE: identities, cookie/localStorage/sessionStorage isolation, restart, revocation, sign-out and unaffected peer
+PASS microsoft adapter against LOCAL FIXTURE: identities, cookie/localStorage/sessionStorage isolation, restart, revocation, sign-out and unaffected peer
+{"google": {"n": 8, "median_ms": 95.88, "slowest_ms": 101.13}, "microsoft": {"n": 8, "median_ms": 107.37, "slowest_ms": 118.42}}
+NOT live provider verification; no actual Google or Microsoft account was used.

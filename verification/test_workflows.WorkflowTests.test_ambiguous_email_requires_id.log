@@ -1,0 +1,25 @@
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'show', 'fixture@example.com']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password: 
+tester: Email matches multiple records; use the account ID.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'show', '302b7bc10a']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+ID: 302b7bc10a
+Service: First
+Email: fixture@example.com
+Username: fixture@example.com
+Sign-in URL: 
+Status: active
+Tags: 
+Notes: 
+Password: (not saved)
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password: 

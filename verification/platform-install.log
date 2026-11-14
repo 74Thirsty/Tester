@@ -1,0 +1,31 @@
+Obtaining file:///home/thompy420/GitHub/Tester
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting cryptography>=42.0.0
+  Using cached cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
+Collecting filelock<4,>=3.13
+  Using cached filelock-3.32.7-py3-none-any.whl (100 kB)
+Collecting playwright<2,>=1.49
+  Using cached playwright-1.65.1-py3-none-manylinux1_x86_64.whl (53.5 MB)
+Collecting coverage>=7.4
+  Using cached coverage-7.17.3-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (263 kB)
+Collecting cffi>=2.0.0
+  Using cached cffi-2.1.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (217 kB)
+Collecting greenlet<4.0.0,>=3.1.1
+  Using cached greenlet-3.5.6-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (624 kB)
+Collecting pycparser
+  Using cached pycparser-3.12-py3-none-any.whl (62 kB)
+Building wheels for collected packages: tester-email-manager
+  Building editable for tester-email-manager (pyproject.toml): started
+  Building editable for tester-email-manager (pyproject.toml): finished with status 'done'
+  Created wheel for tester-email-manager: filename=tester_email_manager-1.0.0-0.editable-py3-none-any.whl size=6000 sha256=e5c02ffc92edc679270e68b70738d05f33378840b70e247312d101e2b8b98016
+  Stored in directory: /tmp/pip-ephem-wheel-cache-pra9dwsa/wheels/17/ea/a2/f9352889ece6c7f51c4a57c50903f1f632ec436ec81f57d1f4
+Successfully built tester-email-manager
+Installing collected packages: pycparser, greenlet, filelock, coverage, playwright, cffi, cryptography, tester-email-manager
+Successfully installed cffi-2.1.1 coverage-7.17.3 cryptography-50.0.2 filelock-3.32.7 greenlet-3.5.6 playwright-1.65.1 pycparser-3.12 tester-email-manager-1.0.0

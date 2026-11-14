@@ -1,0 +1,111 @@
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'init']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 130
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password: 
+tester: cancelled; vault locked.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'init']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password: 
+Warning: Password input may be echoed.
+Confirm master password: 
+tester: Use a master password with at least 12 characters.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'init']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password: 
+Warning: Password input may be echoed.
+Confirm master password: 
+tester: Passwords did not match.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'init']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Encrypted vault created: /tmp/tmpz1wln2wo/vault.json
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password: 
+Warning: Password input may be echoed.
+Confirm master password: 
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'tui']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 130
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+No accounts saved yet.
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password: 
+
+tester: cancelled; vault locked.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'add']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password: 
+Warning: Password input may be echoed.
+Password (Enter skips): 
+tester: Enter a valid email address.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'add']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password: 
+Warning: Password input may be echoed.
+Password (Enter skips): 
+tester: Sign-in URL must be HTTPS and cannot contain whitespace or embedded credentials.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'add']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password: 
+Warning: Password input may be echoed.
+Password (Enter skips): 
+tester: Sign-in URL has an invalid port.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 2
+tester: this vault is already open in another Tester process.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password: 
+tester: Could not read vault: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)

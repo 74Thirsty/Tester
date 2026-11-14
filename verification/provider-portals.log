@@ -1,0 +1,5 @@
+google signin authentication_pending provider_page
+google signup signup_pending provider_page
+microsoft signin identity_unconfirmed 
+microsoft signup signup_pending identifier
+No credentials entered, no signup submitted, no accounts created. NOT authenticated integration evidence.

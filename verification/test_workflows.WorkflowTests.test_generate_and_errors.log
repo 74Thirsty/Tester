@@ -1,0 +1,517 @@
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'generate', '--base', 'chris', '--domain', 'example.com', '--count', '5']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+chris.pexhae@example.com
+chris.2qarvr@example.com
+chris.b7z8sz@example.com
+chris.gqwbxq@example.com
+chris.qpp7zo@example.com
+
+Candidates only: not saved, provisioned, or delivery-verified. Use 'tester add' to save a record.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'generate', '--base', 'chris', '--domain', 'example.com', '--count', '100']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+chris.5amss8@example.com
+chris.bc5q4t@example.com
+chris.8wkav6@example.com
+chris.7kvdzd@example.com
+chris.apau15@example.com
+chris.qkorir@example.com
+chris.fgogd8@example.com
+chris.w70neo@example.com
+chris.tema6p@example.com
+chris.857g2w@example.com
+chris.ypc0qp@example.com
+chris.d12dlz@example.com
+chris.qe0h4y@example.com
+chris.5msea4@example.com
+chris.tj6sbl@example.com
+chris.b9ztjs@example.com
+chris.jotjz0@example.com
+chris.xgr143@example.com
+chris.mr88b0@example.com
+chris.ugt6c4@example.com
+chris.rnfrmc@example.com
+chris.r14cpy@example.com
+chris.65y6hu@example.com
+chris.xaydu1@example.com
+chris.7qd62g@example.com
+chris.bo5ply@example.com
+chris.d2mydv@example.com
+chris.q1j4ir@example.com
+chris.if5dub@example.com
+chris.oh920e@example.com
+chris.jufn94@example.com
+chris.d5cca0@example.com
+chris.cnh60r@example.com
+chris.h70pnx@example.com
+chris.wn0zak@example.com
+chris.ehdnkg@example.com
+chris.a8vbhg@example.com
+chris.lpm3pd@example.com
+chris.ani2di@example.com
+chris.9rzy9j@example.com
+chris.axo5n0@example.com
+chris.5ci0az@example.com
+chris.mcj2jo@example.com
+chris.wa9wt2@example.com
+chris.xv5jir@example.com
+chris.e3nxgq@example.com
+chris.wdt2nj@example.com
+chris.zu4mbr@example.com
+chris.c8bomu@example.com
+chris.thb5vi@example.com
+chris.ficmue@example.com
+chris.y25b5j@example.com
+chris.a242zy@example.com
+chris.5co3vu@example.com
+chris.qdbvdp@example.com
+chris.02c4vv@example.com
+chris.j55nay@example.com
+chris.37mbmc@example.com
+chris.zc0tw8@example.com
+chris.kn4zwu@example.com
+chris.1khyul@example.com
+chris.nfwvrs@example.com
+chris.4dpg5q@example.com
+chris.86hv76@example.com
+chris.urxloh@example.com
+chris.sdj83y@example.com
+chris.i3zgm9@example.com
+chris.wgbkjp@example.com
+chris.nlxkll@example.com
+chris.1w4lu5@example.com
+chris.4ubi07@example.com
+chris.i8ozi1@example.com
+chris.cvkqph@example.com
+chris.jp4vko@example.com
+chris.ng14mk@example.com
+chris.6xa3ka@example.com
+chris.5y0ejd@example.com
+chris.sttrvd@example.com
+chris.zxme1r@example.com
+chris.kiz770@example.com
+chris.49orbj@example.com
+chris.oibm45@example.com
+chris.cy1iv5@example.com
+chris.2fb64t@example.com
+chris.unwrvm@example.com
+chris.ew76lo@example.com
+chris.r4xi4j@example.com
+chris.sydpd0@example.com
+chris.2hnr1c@example.com
+chris.1uxxji@example.com
+chris.6pflo1@example.com
+chris.mqoto7@example.com
+chris.y3500j@example.com
+chris.l4eyi5@example.com
+chris.mdfai7@example.com
+chris.ibjhvo@example.com
+chris.igumfw@example.com
+chris.qfzlie@example.com
+chris.tc4w6q@example.com
+chris.307bx6@example.com
+
+Candidates only: not saved, provisioned, or delivery-verified. Use 'tester add' to save a record.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'generate', '--base', 'chris', '--domain', 'example.com', '--count', '100', '--plus']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+chris+29zusr@example.com
+chris+d80j81@example.com
+chris+ws0dwa@example.com
+chris+n96c8j@example.com
+chris+f1khdx@example.com
+chris+fsyold@example.com
+chris+6duqpu@example.com
+chris+77fh8z@example.com
+chris+m0td6s@example.com
+chris+lj07km@example.com
+chris+zflr3l@example.com
+chris+7w7n1e@example.com
+chris+2i1e35@example.com
+chris+brt4jo@example.com
+chris+1hqhb0@example.com
+chris+josxuz@example.com
+chris+ytj7sb@example.com
+chris+szvpv8@example.com
+chris+yv7l90@example.com
+chris+yz1ysx@example.com
+chris+lcop17@example.com
+chris+jbhd7u@example.com
+chris+uq8f2f@example.com
+chris+lxg1n9@example.com
+chris+7h721h@example.com
+chris+n9y529@example.com
+chris+y4f3qt@example.com
+chris+e6psyu@example.com
+chris+hsn7a6@example.com
+chris+5esaal@example.com
+chris+cdf590@example.com
+chris+qu19g8@example.com
+chris+nw36af@example.com
+chris+a1pdng@example.com
+chris+7h4t0a@example.com
+chris+bday0e@example.com
+chris+6ak1zm@example.com
+chris+4gy4wt@example.com
+chris+6ruguu@example.com
+chris+3izgns@example.com
+chris+i2ivqq@example.com
+chris+jtxd6z@example.com
+chris+x88lx8@example.com
+chris+qqldc6@example.com
+chris+r3ae2o@example.com
+chris+ftr6mc@example.com
+chris+b6hmz8@example.com
+chris+hbt020@example.com
+chris+jisnkl@example.com
+chris+r5ho6h@example.com
+chris+12cer9@example.com
+chris+ac2917@example.com
+chris+vgvcgr@example.com
+chris+5b1tvk@example.com
+chris+smihbe@example.com
+chris+4hucv9@example.com
+chris+30wzoc@example.com
+chris+bcq2ys@example.com
+chris+161j29@example.com
+chris+d150qk@example.com
+chris+cvrc1z@example.com
+chris+5r2gc3@example.com
+chris+m0gt19@example.com
+chris+n6t3sb@example.com
+chris+bcr390@example.com
+chris+v7io79@example.com
+chris+ziuzhz@example.com
+chris+6vy60e@example.com
+chris+mu0ke6@example.com
+chris+5d3hol@example.com
+chris+w6a2uu@example.com
+chris+13a037@example.com
+chris+kz1rao@example.com
+chris+9csigl@example.com
+chris+bu3n0g@example.com
+chris+mfkq07@example.com
+chris+6dhm8c@example.com
+chris+lrjkha@example.com
+chris+zinbn1@example.com
+chris+peu05t@example.com
+chris+2dz7jb@example.com
+chris+lo9si9@example.com
+chris+1odppu@example.com
+chris+h8i3db@example.com
+chris+6w09rt@example.com
+chris+mgdtnc@example.com
+chris+fkjcws@example.com
+chris+6gimou@example.com
+chris+6l2w4w@example.com
+chris+l6b9ln@example.com
+chris+7hj4xd@example.com
+chris+3cknq2@example.com
+chris+b1vomo@example.com
+chris+zvwf8f@example.com
+chris+8eiye4@example.com
+chris+jjc1mj@example.com
+chris+sf3ti3@example.com
+chris+adk4cs@example.com
+chris+5ysult@example.com
+chris+f0e9da@example.com
+
+Candidates only: not saved, provisioned, or delivery-verified. Use 'tester add' to save a record.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'generate', '--base', 'chris', '--domain', 'example.com', '--count', '0']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+tester: Count must be between 1 and 100.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'generate', '--base', 'chris', '--domain', 'example.com', '--count', '101']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+tester: Count must be between 1 and 100.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'generate', '--base', 'chris', '--domain', 'example.com', '--count', 'abc']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 2
+usage: tester generate [-h] --base BASE --domain DOMAIN [--count COUNT]
+                       [--plus]
+tester generate: error: argument --count: invalid int value: 'abc'
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'generate', '--base', 'chris', '--domain', 'example.com', '--domain', '-invalid.com']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 2
+usage: tester generate [-h] --base BASE --domain DOMAIN [--count COUNT]
+                       [--plus]
+tester generate: error: argument --domain: expected one argument
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'generate', '--base', 'chris', '--domain', 'example.com', '--base', 'a+b', '--plus']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+tester: For plus aliases, enter the exact existing mailbox local part using letters, digits, dots, underscores or hyphens; it will not be rewritten.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'generate']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 2
+usage: tester generate [-h] --base BASE --domain DOMAIN [--count COUNT]
+                       [--plus]
+tester generate: error: the following arguments are required: --base, --domain
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'generate', '--base', 'chris', '--domain', 'example.com', '--count', '5']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+chris.zkf363@example.com
+chris.hdrwhg@example.com
+chris.vgxwih@example.com
+chris.fg2j27@example.com
+chris.ngsh1s@example.com
+
+Candidates only: not saved, provisioned, or delivery-verified. Use 'tester add' to save a record.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'generate', '--base', 'chris', '--domain', 'example.com', '--count', '100']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+chris.cv8syj@example.com
+chris.ct4kz2@example.com
+chris.v95nem@example.com
+chris.a8b7n8@example.com
+chris.0qjthh@example.com
+chris.7s4y83@example.com
+chris.z4xt3f@example.com
+chris.pbbse0@example.com
+chris.ktchiv@example.com
+chris.cl1ws2@example.com
+chris.e3ls8u@example.com
+chris.iqzo6s@example.com
+chris.z4jot7@example.com
+chris.xwnzml@example.com
+chris.v4ybpy@example.com
+chris.d5zfz5@example.com
+chris.dpfxpo@example.com
+chris.94231e@example.com
+chris.397wv7@example.com
+chris.01ccrw@example.com
+chris.1gusaq@example.com
+chris.grwgrv@example.com
+chris.1aqo9n@example.com
+chris.ql9izg@example.com
+chris.5kcfup@example.com
+chris.10davc@example.com
+chris.s9q6z8@example.com
+chris.wik3nf@example.com
+chris.9i7aky@example.com
+chris.4fu82k@example.com
+chris.rkpaqg@example.com
+chris.by7t8f@example.com
+chris.r0tw0z@example.com
+chris.hsl36s@example.com
+chris.n85232@example.com
+chris.nxlajm@example.com
+chris.phxnb7@example.com
+chris.fh58qc@example.com
+chris.7ch6lf@example.com
+chris.oagg25@example.com
+chris.c6xyoz@example.com
+chris.bcd5ge@example.com
+chris.ff9a0b@example.com
+chris.7myetc@example.com
+chris.9uk19u@example.com
+chris.hnt9qj@example.com
+chris.ydcki8@example.com
+chris.5gq4gn@example.com
+chris.karixs@example.com
+chris.ug1ns8@example.com
+chris.zzpvwz@example.com
+chris.0eccuw@example.com
+chris.x43x22@example.com
+chris.n4q21s@example.com
+chris.g0uk2z@example.com
+chris.p3mfwr@example.com
+chris.yfk2nx@example.com
+chris.8w1nis@example.com
+chris.g7n5mw@example.com
+chris.kijxvx@example.com
+chris.f15ifx@example.com
+chris.rj8tom@example.com
+chris.mh51rx@example.com
+chris.otzkzd@example.com
+chris.a2fo8f@example.com
+chris.qoytrr@example.com
+chris.oa47wx@example.com
+chris.it4wtv@example.com
+chris.jgltc9@example.com
+chris.9xhl5c@example.com
+chris.3nu1gq@example.com
+chris.don9y8@example.com
+chris.yszdvs@example.com
+chris.mvv6q4@example.com
+chris.rd6n2z@example.com
+chris.43k0e6@example.com
+chris.cv42uf@example.com
+chris.1qhbn7@example.com
+chris.1i9lbq@example.com
+chris.7kmgrk@example.com
+chris.q4y6p2@example.com
+chris.qd8ayz@example.com
+chris.mxymm6@example.com
+chris.prb62u@example.com
+chris.0vrrdk@example.com
+chris.grau39@example.com
+chris.u6r2sj@example.com
+chris.vbkjjy@example.com
+chris.sbrx2o@example.com
+chris.w7ovlv@example.com
+chris.dm688o@example.com
+chris.5bq76i@example.com
+chris.oizjfq@example.com
+chris.1z0ulh@example.com
+chris.tgpr7j@example.com
+chris.7nszaj@example.com
+chris.jcwqnq@example.com
+chris.llyjkn@example.com
+chris.1a6kph@example.com
+chris.v4b3so@example.com
+
+Candidates only: not saved, provisioned, or delivery-verified. Use 'tester add' to save a record.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'generate', '--base', 'chris', '--domain', 'example.com', '--count', '100', '--plus']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+chris+97ukjn@example.com
+chris+7xqojx@example.com
+chris+yzwg9x@example.com
+chris+1voa7j@example.com
+chris+0114rw@example.com
+chris+yuwbrk@example.com
+chris+f933lw@example.com
+chris+rvnusu@example.com
+chris+4xcpsg@example.com
+chris+x3ptm9@example.com
+chris+g8lyx8@example.com
+chris+ocfemm@example.com
+chris+4h0s4z@example.com
+chris+dpke5f@example.com
+chris+bvqcue@example.com
+chris+3o611t@example.com
+chris+7976v6@example.com
+chris+ei18qa@example.com
+chris+t67hhu@example.com
+chris+lm3gp7@example.com
+chris+v8m3vv@example.com
+chris+fss03s@example.com
+chris+tszv5v@example.com
+chris+6ww51x@example.com
+chris+2r3fy4@example.com
+chris+cyroof@example.com
+chris+nreqj7@example.com
+chris+4fcv0v@example.com
+chris+og9pzh@example.com
+chris+ku4nfc@example.com
+chris+kqn3uu@example.com
+chris+qr2z7a@example.com
+chris+xe2t8n@example.com
+chris+xyaa1s@example.com
+chris+3irkv1@example.com
+chris+xjqvoc@example.com
+chris+vt8f91@example.com
+chris+2i9h05@example.com
+chris+nbuzr4@example.com
+chris+9kw891@example.com
+chris+3kpwmx@example.com
+chris+eonf2l@example.com
+chris+yo9w3e@example.com
+chris+qzobls@example.com
+chris+z1tlkx@example.com
+chris+bfdk6p@example.com
+chris+pu41xl@example.com
+chris+c5ifgs@example.com
+chris+rfipqj@example.com
+chris+35w5zi@example.com
+chris+098gl2@example.com
+chris+x686rt@example.com
+chris+l639qy@example.com
+chris+hgi4s7@example.com
+chris+tj964c@example.com
+chris+hta2cv@example.com
+chris+65m2m4@example.com
+chris+tfh3o9@example.com
+chris+nrfh3q@example.com
+chris+4vmtvh@example.com
+chris+q0lwxb@example.com
+chris+gkgfn9@example.com
+chris+brlxm5@example.com
+chris+g2nf1p@example.com
+chris+vkk0ov@example.com
+chris+bnyqmo@example.com
+chris+apr1zr@example.com
+chris+i8jhai@example.com
+chris+a1k48v@example.com
+chris+zjooj6@example.com
+chris+afxizb@example.com
+chris+y5y93x@example.com
+chris+y2tskl@example.com
+chris+ehp2xi@example.com
+chris+q9yiy6@example.com
+chris+3ao48c@example.com
+chris+s8hxm2@example.com
+chris+fwtddz@example.com
+chris+i4bgo4@example.com
+chris+4im848@example.com
+chris+33nyrt@example.com
+chris+etzdub@example.com
+chris+dwfhyo@example.com
+chris+wfp0xa@example.com
+chris+yxz54s@example.com
+chris+vxqhv5@example.com
+chris+z48b18@example.com
+chris+pcfyem@example.com
+chris+vthebl@example.com
+chris+01k20t@example.com
+chris+dmf7c7@example.com
+chris+qqzamt@example.com
+chris+6grurd@example.com
+chris+udov6g@example.com
+chris+hre3xz@example.com
+chris+t49623@example.com
+chris+dif195@example.com
+chris+w2spga@example.com
+chris+vuhnt6@example.com
+chris+yijxe8@example.com
+
+Candidates only: not saved, provisioned, or delivery-verified. Use 'tester add' to save a record.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'generate', '--base', 'chris', '--domain', 'example.com', '--count', '0']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+tester: Count must be between 1 and 100.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'generate', '--base', 'chris', '--domain', 'example.com', '--count', '101']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+tester: Count must be between 1 and 100.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'generate', '--base', 'chris', '--domain', 'example.com', '--count', 'abc']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 2
+usage: tester generate [-h] --base BASE --domain DOMAIN [--count COUNT]
+                       [--plus]
+tester generate: error: argument --count: invalid int value: 'abc'
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'generate', '--base', 'chris', '--domain', 'example.com', '--domain', '-invalid.com']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 2
+usage: tester generate [-h] --base BASE --domain DOMAIN [--count COUNT]
+                       [--plus]
+tester generate: error: argument --domain: expected one argument
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'generate', '--base', 'chris', '--domain', 'example.com', '--base', 'a+b', '--plus']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+tester: For plus aliases, enter the exact existing mailbox local part using letters, digits, dots, underscores or hyphens; it will not be rewritten.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'generate']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 2
+usage: tester generate [-h] --base BASE --domain DOMAIN [--count COUNT]
+                       [--plus]
+tester generate: error: the following arguments are required: --base, --domain

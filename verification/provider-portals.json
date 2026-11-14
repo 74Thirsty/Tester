@@ -1,0 +1,77 @@
+[
+  {
+    "platform": "google",
+    "operation": "signin",
+    "scope": "anonymous public portal only",
+    "state": "authentication_pending",
+    "identity_match": false,
+    "checkpoint_code": "provider_page",
+    "checkpoint": "Complete the provider page (verification, CAPTCHA, MFA or consent) yourself; then resume.",
+    "fresh_check": true,
+    "timings": {
+      "activation_ms": 3.41,
+      "navigation_ms": 1782.74,
+      "navigation_and_observation_ms": 5941.53,
+      "usable_page_ms": null,
+      "client_total_ms": 6695.92,
+      "cold_worker": true,
+      "startup_ipc_and_scheduling_ms": 750.98
+    }
+  },
+  {
+    "platform": "google",
+    "operation": "signup",
+    "scope": "anonymous public portal only",
+    "state": "signup_pending",
+    "identity_match": false,
+    "checkpoint_code": "provider_page",
+    "checkpoint": "Signup pending; creation is not confirmed. Complete signup, terms and verification yourself, then resume. Complete the provider page (verification, CAPTCHA, MFA or consent) yourself; then resume.",
+    "fresh_check": false,
+    "timings": {
+      "activation_ms": 2.17,
+      "navigation_ms": 1183.7,
+      "navigation_and_observation_ms": 1226.84,
+      "usable_page_ms": null,
+      "client_total_ms": 1961.61,
+      "cold_worker": true,
+      "startup_ipc_and_scheduling_ms": 732.6
+    }
+  },
+  {
+    "platform": "microsoft",
+    "operation": "signin",
+    "scope": "anonymous public portal only",
+    "state": "identity_unconfirmed",
+    "identity_match": false,
+    "checkpoint": "Open the provider account menu to expose the account email, then verify. A loaded page alone is not authentication proof.",
+    "fresh_check": true,
+    "timings": {
+      "activation_ms": 2.38,
+      "navigation_ms": 1433.8,
+      "navigation_and_observation_ms": 7564.71,
+      "usable_page_ms": null,
+      "client_total_ms": 8303.34,
+      "cold_worker": true,
+      "startup_ipc_and_scheduling_ms": 736.25
+    }
+  },
+  {
+    "platform": "microsoft",
+    "operation": "signup",
+    "scope": "anonymous public portal only",
+    "state": "signup_pending",
+    "identity_match": false,
+    "checkpoint_code": "identifier",
+    "checkpoint": "Signup pending; creation is not confirmed. Complete signup, terms and verification yourself, then resume. Enter the account identifier directly in the provider browser window, then resume after authentication.",
+    "fresh_check": false,
+    "timings": {
+      "activation_ms": 3.44,
+      "navigation_ms": 2076.33,
+      "navigation_and_observation_ms": 3273.61,
+      "usable_page_ms": null,
+      "client_total_ms": 4027.0,
+      "cold_worker": true,
+      "startup_ipc_and_scheduling_ms": 749.95
+    }
+  }
+]

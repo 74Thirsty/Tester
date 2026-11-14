@@ -1,0 +1,10 @@
+PASS ['/tmp/tester-verification-venv/bin/python', '/home/thompy420/GitHub/Tester/tester.py'] copy <fixture-id>: actual X11 clipboard equals synthetic fixture; contents omitted
+PASS ['/tmp/tester-verification-venv/bin/python', '/home/thompy420/GitHub/Tester/tester.py'] copy-password <fixture-id>: actual X11 clipboard equals synthetic fixture; contents omitted
+PASS ['/tmp/tester-verification-venv/bin/python', '/home/thompy420/GitHub/Tester/tester.py'] open <fixture-id>: Chromium fetched unique local HTTPS path; last_used_at persisted
+PASS ['/tmp/tester-verification-venv/bin/tester'] copy <fixture-id>: actual X11 clipboard equals synthetic fixture; contents omitted
+PASS ['/tmp/tester-verification-venv/bin/tester'] copy-password <fixture-id>: actual X11 clipboard equals synthetic fixture; contents omitted
+PASS ['/tmp/tester-verification-venv/bin/tester'] open <fixture-id>: Chromium fetched unique local HTTPS path; last_used_at persisted
+PASS installed tester tui: C -> fixture ID -> Q; real desktop boundary verified
+PASS installed tester tui: P -> fixture ID -> Q; real desktop boundary verified
+PASS installed tester tui: O -> fixture ID -> Q; real desktop boundary verified
+PASS: clipboard restored; all fixtures and browser profile removed. HTTPS fixture uses a temporary self-signed certificate.
