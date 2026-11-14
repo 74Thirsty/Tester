@@ -1,0 +1,225 @@
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'tui']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Welcome to Tester — create your encrypted local vault.
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+No accounts saved yet.
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Choose one of the listed actions.
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+No accounts saved yet.
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Base name: Domain: Count (1-100): Plus aliases for an existing mailbox? [y/N] chris.ra1yfq@example.com
+chris.bfpcys@example.com
+Candidates only: not saved, provisioned, or delivery-verified. Use Add to save a record.
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+No accounts saved yet.
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Base name: Domain: Count (1-100): Plus aliases for an existing mailbox? [y/N] chris+vqs657@example.com
+Candidates only: not saved, provisioned, or delivery-verified. Use Add to save a record.
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+No accounts saved yet.
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Base name: Domain: Count (1-100): Error: invalid literal for int() with base 10: 'abc'
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+No accounts saved yet.
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): Saved.
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+6aa41f6dbe  Example                 fixture@example.com                     active
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Account ID or email: Service: Example
+Email: fixture@example.com
+Username: fixture@example.com
+Sign-in:
+Status: active
+Tags: qa
+Notes: Synthetic fixture
+Password: (not saved)
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+6aa41f6dbe  Example                 fixture@example.com                     active
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Account ID or email: No password saved.
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+6aa41f6dbe  Example                 fixture@example.com                     active
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Account ID or email: No sign-in URL saved.
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+6aa41f6dbe  Example                 fixture@example.com                     active
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Account ID or email: Error: No account found for: missing
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+6aa41f6dbe  Example                 fixture@example.com                     active
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Account ID or email: Delete this record? [y/N]
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+6aa41f6dbe  Example                 fixture@example.com                     active
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Vault locked. Goodbye.
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+Warning: Password input may be echoed.
+Confirm master password:
+Warning: Password input may be echoed.
+Password (Enter skips):
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'tui']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+6aa41f6dbe  Example                 fixture@example.com                     active
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Account ID or email: Delete this record? [y/N] Deleted.
+
+====================================================
+ TESTER — EMAIL IDENTITY MANAGER
+====================================================
+No accounts saved yet.
+
+[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy
+[O]pen sign-in  [D]elete  [Q]uit
+[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in
+[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions
+[U]pdate expected identifier  [B]close selected browser (not sign-out)
+Enter a displayed platform account number to switch directly.
+
+Select: Vault locked. Goodbye.
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:

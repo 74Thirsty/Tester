@@ -1,0 +1,743 @@
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', '--version']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Tester 1.0.0
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester [-h] [--version] [--vault VAULT]
+              {init,tui,list,add,accounts,close-sessions,set-identifier,add-existing,signup,signin,switch,resume,verify,signout,verify-signout,remove,close,backup,restore,generate,show,copy,copy-password,open,delete}
+              ...
+
+Encrypted terminal email identity manager
+
+positional arguments:
+  {init,tui,list,add,accounts,close-sessions,set-identifier,add-existing,signup,signin,switch,resume,verify,signout,verify-signout,remove,close,backup,restore,generate,show,copy,copy-password,open,delete}
+    init                create encrypted vault
+    tui                 interactive terminal menu
+    list                list saved identities
+    add                 add email and website login record
+    accounts            list saved platform accounts and explicitly cached
+                        session observations
+    close-sessions      close isolated browsers; preserve sessions without
+                        signing out
+    set-identifier      correct expected signup identity without discarding
+                        the browser profile; invalidates prior observations
+    add-existing        save an existing platform identity
+    signup              start user-completed consumer signup in an isolated
+                        browser
+    signin              signin the selected isolated platform session
+    switch              switch the selected isolated platform session
+    resume              resume the selected isolated platform session
+    verify              fresh browser navigation and identity observation
+    signout             signout the selected isolated platform session
+    verify-signout      check that fresh mail navigation requires
+                        authentication
+    remove              remove local record/profile, not the external account
+    close               close the selected isolated platform session
+    backup              create a verified encrypted backup
+    restore             restore a verified encrypted backup
+    generate            generate address candidates, not mailboxes
+    show                show record
+    copy                copy email
+    copy-password       copy saved password
+    open                open sign-in page
+    delete              delete record
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --vault VAULT         vault file path (or TESTER_VAULT)
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'init', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester init [-h]
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'tui', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester tui [-h]
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'generate', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester generate [-h] --base BASE --domain DOMAIN [--count COUNT]
+                       [--plus]
+
+options:
+  -h, --help       show this help message and exit
+  --base BASE
+  --domain DOMAIN
+  --count COUNT
+  --plus
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'add', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester add [-h]
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester list [-h]
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'show', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester show [-h] identifier
+
+positional arguments:
+  identifier
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'copy', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester copy [-h] identifier
+
+positional arguments:
+  identifier
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'copy-password', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester copy-password [-h] identifier
+
+positional arguments:
+  identifier
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'open', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester open [-h] identifier
+
+positional arguments:
+  identifier
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'delete', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester delete [-h] identifier
+
+positional arguments:
+  identifier
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'backup', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester backup [-h] destination
+
+positional arguments:
+  destination
+
+options:
+  -h, --help   show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'restore', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester restore [-h] [--force] source
+
+positional arguments:
+  source
+
+options:
+  -h, --help  show this help message and exit
+  --force     replace an existing vault
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+tester: No vault at /tmp/tmpz2roawwi/vault-False.json. Run 'tester init' first.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'init']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Encrypted vault created: /tmp/tmpz2roawwi/vault-False.json
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+Warning: Password input may be echoed.
+Confirm master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'init']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+Warning: Password input may be echoed.
+Confirm master password:
+tester: Vault already exists: /tmp/tmpz2roawwi/vault-False.json
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+No accounts saved yet.
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+tester: Incorrect master password or vault integrity check failed.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'add']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): Saved fixture@example.com (c75cd9414a).
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+Warning: Password input may be echoed.
+Password (Enter skips):
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'add']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+Warning: Password input may be echoed.
+Password (Enter skips):
+tester: That email is already saved for this service.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+c75cd9414a  Example                 fixture@example.com                     active
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'show', 'fixture@example.com']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+ID: c75cd9414a
+Service: Example
+Email: fixture@example.com
+Username: fixture@example.com
+Sign-in URL: https://example.com/login
+Status: active
+Tags: local, qa
+Notes: Synthetic fixture
+Password: (saved; use copy-password)
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'show', 'missing']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+tester: No account found for: missing
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'backup', '/tmp/tmpz2roawwi/backup-False.vault']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Encrypted backup created: /tmp/tmpz2roawwi/backup-False.vault
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'backup', '/tmp/tmpz2roawwi/backup-False.vault']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+tester: Backup destination already exists: /tmp/tmpz2roawwi/backup-False.vault
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'restore', '/tmp/tmpz2roawwi/backup-False.vault']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+tester: Vault already exists: /tmp/tmpz2roawwi/vault-False.json. Use --force to replace it.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'delete', 'fixture@example.com']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Delete fixture@example.com (Example)? [y/N] /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+c75cd9414a  Example                 fixture@example.com                     active
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'delete', 'fixture@example.com']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Delete fixture@example.com (Example)? [y/N] Deleted.
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+No accounts saved yet.
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'restore', '/tmp/tmpz2roawwi/backup-False.vault', '--force']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Encrypted vault restored from: /tmp/tmpz2roawwi/backup-False.vault
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+c75cd9414a  Example                 fixture@example.com                     active
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', '--vault', '/tmp/tmpz2roawwi/restored-False.json', 'restore', '/tmp/tmpz2roawwi/backup-False.vault']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Encrypted vault restored from: /tmp/tmpz2roawwi/backup-False.vault
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', '--version']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Tester 1.0.0
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester [-h] [--version] [--vault VAULT]
+              {init,tui,list,add,accounts,close-sessions,set-identifier,add-existing,signup,signin,switch,resume,verify,signout,verify-signout,remove,close,backup,restore,generate,show,copy,copy-password,open,delete}
+              ...
+
+Encrypted terminal email identity manager
+
+positional arguments:
+  {init,tui,list,add,accounts,close-sessions,set-identifier,add-existing,signup,signin,switch,resume,verify,signout,verify-signout,remove,close,backup,restore,generate,show,copy,copy-password,open,delete}
+    init                create encrypted vault
+    tui                 interactive terminal menu
+    list                list saved identities
+    add                 add email and website login record
+    accounts            list saved platform accounts and explicitly cached
+                        session observations
+    close-sessions      close isolated browsers; preserve sessions without
+                        signing out
+    set-identifier      correct expected signup identity without discarding
+                        the browser profile; invalidates prior observations
+    add-existing        save an existing platform identity
+    signup              start user-completed consumer signup in an isolated
+                        browser
+    signin              signin the selected isolated platform session
+    switch              switch the selected isolated platform session
+    resume              resume the selected isolated platform session
+    verify              fresh browser navigation and identity observation
+    signout             signout the selected isolated platform session
+    verify-signout      check that fresh mail navigation requires
+                        authentication
+    remove              remove local record/profile, not the external account
+    close               close the selected isolated platform session
+    backup              create a verified encrypted backup
+    restore             restore a verified encrypted backup
+    generate            generate address candidates, not mailboxes
+    show                show record
+    copy                copy email
+    copy-password       copy saved password
+    open                open sign-in page
+    delete              delete record
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --vault VAULT         vault file path (or TESTER_VAULT)
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'init', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester init [-h]
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'tui', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester tui [-h]
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'generate', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester generate [-h] --base BASE --domain DOMAIN [--count COUNT]
+                       [--plus]
+
+options:
+  -h, --help       show this help message and exit
+  --base BASE
+  --domain DOMAIN
+  --count COUNT
+  --plus
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'add', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester add [-h]
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester list [-h]
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'show', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester show [-h] identifier
+
+positional arguments:
+  identifier
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'copy', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester copy [-h] identifier
+
+positional arguments:
+  identifier
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'copy-password', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester copy-password [-h] identifier
+
+positional arguments:
+  identifier
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'open', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester open [-h] identifier
+
+positional arguments:
+  identifier
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'delete', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester delete [-h] identifier
+
+positional arguments:
+  identifier
+
+options:
+  -h, --help  show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'backup', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester backup [-h] destination
+
+positional arguments:
+  destination
+
+options:
+  -h, --help   show this help message and exit
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'restore', '--help']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+usage: tester restore [-h] [--force] source
+
+positional arguments:
+  source
+
+options:
+  -h, --help  show this help message and exit
+  --force     replace an existing vault
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+tester: No vault at /tmp/tmpz2roawwi/vault-True.json. Run 'tester init' first.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'init']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Encrypted vault created: /tmp/tmpz2roawwi/vault-True.json
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+Warning: Password input may be echoed.
+Confirm master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'init']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+Warning: Password input may be echoed.
+Confirm master password:
+tester: Vault already exists: /tmp/tmpz2roawwi/vault-True.json
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+No accounts saved yet.
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+tester: Incorrect master password or vault integrity check failed.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'add']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): Saved fixture@example.com (97eacd6c50).
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+Warning: Password input may be echoed.
+Password (Enter skips):
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'add']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+Warning: Password input may be echoed.
+Password (Enter skips):
+tester: That email is already saved for this service.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+97eacd6c50  Example                 fixture@example.com                     active
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'show', 'fixture@example.com']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+ID: 97eacd6c50
+Service: Example
+Email: fixture@example.com
+Username: fixture@example.com
+Sign-in URL: https://example.com/login
+Status: active
+Tags: local, qa
+Notes: Synthetic fixture
+Password: (saved; use copy-password)
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'show', 'missing']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+tester: No account found for: missing
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'backup', '/tmp/tmpz2roawwi/backup-True.vault']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Encrypted backup created: /tmp/tmpz2roawwi/backup-True.vault
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'backup', '/tmp/tmpz2roawwi/backup-True.vault']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+tester: Backup destination already exists: /tmp/tmpz2roawwi/backup-True.vault
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'restore', '/tmp/tmpz2roawwi/backup-True.vault']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 1
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+tester: Vault already exists: /tmp/tmpz2roawwi/vault-True.json. Use --force to replace it.
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'delete', 'fixture@example.com']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Delete fixture@example.com (Example)? [y/N] /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+97eacd6c50  Example                 fixture@example.com                     active
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'delete', 'fixture@example.com']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Delete fixture@example.com (Example)? [y/N] Deleted.
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+No accounts saved yet.
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'restore', '/tmp/tmpz2roawwi/backup-True.vault', '--force']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Encrypted vault restored from: /tmp/tmpz2roawwi/backup-True.vault
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+ID          SERVICE                 EMAIL                                   STATUS
+----------------------------------------------------------------------------------------
+97eacd6c50  Example                 fixture@example.com                     active
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:
+
+COMMAND: ['/tmp/tester-platform-clean/bin/tester', '--vault', '/tmp/tmpz2roawwi/restored-True.json', 'restore', '/tmp/tmpz2roawwi/backup-True.vault']
+INPUT: synthetic fixture (passwords omitted)
+EXIT: 0
+Encrypted vault restored from: /tmp/tmpz2roawwi/backup-True.vault
+/usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
+  passwd = fallback_getpass(prompt, stream)
+Warning: Password input may be echoed.
+Master password:

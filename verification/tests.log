@@ -1,0 +1,31 @@
+test_account_operations (test_core.CoreTests.test_account_operations) ... ok
+test_backup_rejects_wrong_password (test_core.CoreTests.test_backup_rejects_wrong_password) ... ok
+test_create_does_not_clobber_existing_vault (test_core.CoreTests.test_create_does_not_clobber_existing_vault) ... ok
+test_create_will_not_overwrite (test_core.CoreTests.test_create_will_not_overwrite) ... ok
+test_encrypted_backup_and_restore (test_core.CoreTests.test_encrypted_backup_and_restore) ... ok
+test_encrypted_round_trip_and_wrong_password (test_core.CoreTests.test_encrypted_round_trip_and_wrong_password) ... ok
+test_generation (test_core.CoreTests.test_generation) ... ok
+test_invalid_crypto_metadata_and_schema_are_rejected (test_core.CoreTests.test_invalid_crypto_metadata_and_schema_are_rejected) ... ok
+test_sign_in_url_rejects_embedded_credentials (test_core.CoreTests.test_sign_in_url_rejects_embedded_credentials) ... ok
+test_symlink_vault_is_rejected (test_core.CoreTests.test_symlink_vault_is_rejected) ... ok
+test_vault_lock_rejects_second_writer (test_core.CoreTests.test_vault_lock_rejects_second_writer) ... ok
+test_actual_terminal_password_hidden_and_menu (test_workflows.RegressionTests.test_actual_terminal_password_hidden_and_menu) ... ok
+test_clipboard_owner_cannot_inherit_cli_output (test_workflows.RegressionTests.test_clipboard_owner_cannot_inherit_cli_output) ... ok
+test_collision_retry_and_exhaustion (test_workflows.RegressionTests.test_collision_retry_and_exhaustion) ... ok
+test_desktop_dispatch_and_failure (test_workflows.RegressionTests.test_desktop_dispatch_and_failure) ... ok
+test_oversized_write_preserves_vault (test_workflows.RegressionTests.test_oversized_write_preserves_vault) ... ok
+test_platform_paths_and_environment_override (test_workflows.RegressionTests.test_platform_paths_and_environment_override) ... ok
+test_plus_never_silently_changes_mailbox (test_workflows.RegressionTests.test_plus_never_silently_changes_mailbox) ... ok
+test_tui_save_failure_rolls_back (test_workflows.RegressionTests.test_tui_save_failure_rolls_back) ... ok
+test_untrusted_record_urls_and_corrupt_envelopes (test_workflows.RegressionTests.test_untrusted_record_urls_and_corrupt_envelopes) ... ok
+test_ambiguous_email_requires_id (test_workflows.WorkflowTests.test_ambiguous_email_requires_id) ... ok
+test_cli_lifecycle_both_entrypoints (test_workflows.WorkflowTests.test_cli_lifecycle_both_entrypoints) ... ok
+test_eof_invalid_records_and_lock (test_workflows.WorkflowTests.test_eof_invalid_records_and_lock) ... ok
+test_generate_and_errors (test_workflows.WorkflowTests.test_generate_and_errors) ... ok
+test_missing_optional_fields_and_desktop_failures (test_workflows.WorkflowTests.test_missing_optional_fields_and_desktop_failures) ... ok
+test_tui_full_menu_and_reopen (test_workflows.WorkflowTests.test_tui_full_menu_and_reopen) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 17.684s
+
+OK

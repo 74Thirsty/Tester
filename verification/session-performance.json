@@ -1,0 +1,257 @@
+{
+  "conditions": "Local HTTP fixture, real headful Chromium, persistent separate profiles, no real provider/network/manual authentication timings",
+  "samples": [
+    {
+      "platform": "google",
+      "sample": 0,
+      "kind": "initial_fixture_session",
+      "elapsed_ms": 502.92,
+      "timings": {
+        "activation_ms": 5.52,
+        "navigation_ms": 15.29,
+        "navigation_and_observation_ms": 106.53,
+        "usable_page_ms": 112.05
+      }
+    },
+    {
+      "platform": "google",
+      "sample": 1,
+      "kind": "initial_fixture_session",
+      "elapsed_ms": 487.78,
+      "timings": {
+        "activation_ms": 1.27,
+        "navigation_ms": 15.08,
+        "navigation_and_observation_ms": 105.26,
+        "usable_page_ms": 106.53
+      }
+    },
+    {
+      "platform": "google",
+      "sample": 0,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 101.13,
+      "timings": {
+        "activation_ms": 1.48,
+        "navigation_ms": 14.24,
+        "navigation_and_observation_ms": 90.23,
+        "usable_page_ms": 91.7
+      }
+    },
+    {
+      "platform": "google",
+      "sample": 1,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 98.49,
+      "timings": {
+        "activation_ms": 1.24,
+        "navigation_ms": 16.76,
+        "navigation_and_observation_ms": 88.47,
+        "usable_page_ms": 89.72
+      }
+    },
+    {
+      "platform": "google",
+      "sample": 2,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 92.74,
+      "timings": {
+        "activation_ms": 1.74,
+        "navigation_ms": 18.33,
+        "navigation_and_observation_ms": 87.2,
+        "usable_page_ms": 88.95
+      }
+    },
+    {
+      "platform": "google",
+      "sample": 3,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 99.97,
+      "timings": {
+        "activation_ms": 2.89,
+        "navigation_ms": 18.89,
+        "navigation_and_observation_ms": 93.3,
+        "usable_page_ms": 96.19
+      }
+    },
+    {
+      "platform": "google",
+      "sample": 4,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 98.87,
+      "timings": {
+        "activation_ms": 5.54,
+        "navigation_ms": 16.87,
+        "navigation_and_observation_ms": 89.95,
+        "usable_page_ms": 95.49
+      }
+    },
+    {
+      "platform": "google",
+      "sample": 5,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 93.26,
+      "timings": {
+        "activation_ms": 1.32,
+        "navigation_ms": 15.82,
+        "navigation_and_observation_ms": 84.3,
+        "usable_page_ms": 85.62
+      }
+    },
+    {
+      "platform": "google",
+      "sample": 6,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 89.43,
+      "timings": {
+        "activation_ms": 1.07,
+        "navigation_ms": 18.92,
+        "navigation_and_observation_ms": 85.09,
+        "usable_page_ms": 86.16
+      }
+    },
+    {
+      "platform": "google",
+      "sample": 7,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 85.88,
+      "timings": {
+        "activation_ms": 0.92,
+        "navigation_ms": 15.31,
+        "navigation_and_observation_ms": 81.49,
+        "usable_page_ms": 82.41
+      }
+    },
+    {
+      "platform": "microsoft",
+      "sample": 0,
+      "kind": "initial_fixture_session",
+      "elapsed_ms": 469.59,
+      "timings": {
+        "activation_ms": 1.03,
+        "navigation_ms": 11.97,
+        "navigation_and_observation_ms": 115.44,
+        "usable_page_ms": 116.48
+      }
+    },
+    {
+      "platform": "microsoft",
+      "sample": 1,
+      "kind": "initial_fixture_session",
+      "elapsed_ms": 484.61,
+      "timings": {
+        "activation_ms": 0.91,
+        "navigation_ms": 13.46,
+        "navigation_and_observation_ms": 132.94,
+        "usable_page_ms": 133.86
+      }
+    },
+    {
+      "platform": "microsoft",
+      "sample": 0,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 118.42,
+      "timings": {
+        "activation_ms": 0.98,
+        "navigation_ms": 16.41,
+        "navigation_and_observation_ms": 114.22,
+        "usable_page_ms": 115.2
+      }
+    },
+    {
+      "platform": "microsoft",
+      "sample": 1,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 111.69,
+      "timings": {
+        "activation_ms": 4.14,
+        "navigation_ms": 14.04,
+        "navigation_and_observation_ms": 104.03,
+        "usable_page_ms": 108.17
+      }
+    },
+    {
+      "platform": "microsoft",
+      "sample": 2,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 106.44,
+      "timings": {
+        "activation_ms": 1.08,
+        "navigation_ms": 14.39,
+        "navigation_and_observation_ms": 101.28,
+        "usable_page_ms": 102.36
+      }
+    },
+    {
+      "platform": "microsoft",
+      "sample": 3,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 107.8,
+      "timings": {
+        "activation_ms": 3.11,
+        "navigation_ms": 9.87,
+        "navigation_and_observation_ms": 99.94,
+        "usable_page_ms": 103.05
+      }
+    },
+    {
+      "platform": "microsoft",
+      "sample": 4,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 101.53,
+      "timings": {
+        "activation_ms": 0.99,
+        "navigation_ms": 14.67,
+        "navigation_and_observation_ms": 97.41,
+        "usable_page_ms": 98.4
+      }
+    },
+    {
+      "platform": "microsoft",
+      "sample": 5,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 106.47,
+      "timings": {
+        "activation_ms": 0.85,
+        "navigation_ms": 11.11,
+        "navigation_and_observation_ms": 102.37,
+        "usable_page_ms": 103.22
+      }
+    },
+    {
+      "platform": "microsoft",
+      "sample": 6,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 106.93,
+      "timings": {
+        "activation_ms": 3.8,
+        "navigation_ms": 9.89,
+        "navigation_and_observation_ms": 95.65,
+        "usable_page_ms": 99.46
+      }
+    },
+    {
+      "platform": "microsoft",
+      "sample": 7,
+      "kind": "warm_fixture_switch",
+      "elapsed_ms": 108.44,
+      "timings": {
+        "activation_ms": 1.08,
+        "navigation_ms": 15.6,
+        "navigation_and_observation_ms": 104.02,
+        "usable_page_ms": 105.1
+      }
+    }
+  ],
+  "warm_summary": {
+    "google": {
+      "n": 8,
+      "median_ms": 95.88,
+      "slowest_ms": 101.13
+    },
+    "microsoft": {
+      "n": 8,
+      "median_ms": 107.37,
+      "slowest_ms": 118.42
+    }
+  }
+}

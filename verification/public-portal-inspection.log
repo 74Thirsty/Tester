@@ -1,0 +1,3 @@
+REQUEST outlook.live.com OBSERVED HOST outlook.live.com email_inputs 0 password_inputs 0 signin_links 0
+REQUEST outlook.live.com OBSERVED HOST www.microsoft.com email_inputs 0 password_inputs 0 signin_links 0
+REQUEST accounts.google.com OBSERVED HOST accounts.google.com email_inputs 0 password_inputs 0 signin_links 0

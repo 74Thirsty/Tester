@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import copy as copy_module
 import getpass
 import json
 import os
@@ -14,6 +15,7 @@ import string
 import subprocess
 import sys
 import tempfile
+import time
 import uuid
 import webbrowser
 from datetime import datetime, timezone
@@ -24,9 +26,12 @@ from cryptography.exceptions import InvalidTag
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
 from filelock import FileLock, Timeout as LockTimeout
+from tester_platforms import PLATFORMS, platform
+from tester_sessions import SessionError, request as session_request, close_profile, forget_profile
 
 VERSION = "1.0.0"
 AAD = b"tester-vault-v1"
+MAX_VAULT_BYTES = 16 * 1024 * 1024
 EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
 
 
@@ -71,6 +76,8 @@ def encrypt(path: Path, password: str, data: dict, *, create: bool = False) -> N
     )
     envelope = json.dumps({"version": 1, "kdf": "scrypt-n32768-r8-p1", "cipher": "AES-256-GCM",
                            "salt": b64(salt), "nonce": b64(nonce), "ciphertext": b64(ciphertext)})
+    if len(envelope.encode("utf-8")) > MAX_VAULT_BYTES:
+        raise TesterError("Vault exceeds the 16 MiB safety limit; no changes saved.")
     fd, tmp = tempfile.mkstemp(prefix=".tester-", dir=path.parent)
     try:
         if os.name != "nt":
@@ -108,7 +115,7 @@ def decrypt(path: Path, password: str) -> dict:
             raise TesterError("Refusing to open a vault symlink.")
         if not path.is_file():
             raise TesterError("Vault does not exist or is not a regular file.")
-        if path.stat().st_size > 16 * 1024 * 1024:
+        if path.stat().st_size > MAX_VAULT_BYTES:
             raise TesterError("Vault exceeds the 16 MiB safety limit.")
         box = json.loads(path.read_text(encoding="utf-8"))
         if not isinstance(box, dict) or box.get("version") != 1:
@@ -135,6 +142,13 @@ def decrypt(path: Path, password: str) -> dict:
                 raise TesterError("Vault contains invalid account tags.")
             if account["last_used_at"] is not None and not isinstance(account["last_used_at"], str):
                 raise TesterError("Vault contains an invalid last-used timestamp.")
+            valid_email(account["email"])
+            valid_login_url(account["login_url"])
+            if 'platform' in account:
+                validate_platform_account(account)
+        profiles = [a['browser_profile'] for a in data['accounts'] if 'platform' in a]
+        if len(profiles) != len(set(profiles)):
+            raise TesterError('Vault contains shared browser profiles; account isolation cannot be guaranteed.')
         return data
     except TesterError:
         raise
@@ -214,6 +228,10 @@ def valid_email(value: str) -> str:
 
 
 def generate(base: str, domain: str, count: int, plus: bool) -> list[str]:
+    if plus and not re.fullmatch(r"[a-zA-Z0-9._-]+", base.strip()):
+        raise TesterError("For plus aliases, enter the exact existing mailbox local part using letters, digits, dots, underscores or hyphens; it will not be rewritten.")
+    if plus and (base.strip().startswith((".", "-")) or base.strip().endswith((".", "-"))):
+        raise TesterError("Plus alias base cannot start or end with a dot or hyphen.")
     base = re.sub(r"[^a-zA-Z0-9._-]+", "", base.strip()).strip(".-")
     domain = domain.strip().lower()
     labels = domain.split(".")
@@ -227,20 +245,39 @@ def generate(base: str, domain: str, count: int, plus: bool) -> list[str]:
     if not 1 <= count <= 100:
         raise TesterError("Count must be between 1 and 100.")
     addresses = []
-    for _ in range(count):
+    seen = set()
+    for _ in range(count * 20):
         token = "".join(secrets.choice(string.ascii_lowercase + string.digits) for _ in range(6))
         local = f"{base}+{token}" if plus else f"{base}.{token}"
-        addresses.append(valid_email(f"{local}@{domain}"))
+        address = valid_email(f"{local}@{domain}")
+        if address not in seen:
+            addresses.append(address)
+            seen.add(address)
+        if len(addresses) == count:
+            break
+    if len(addresses) != count:
+        raise TesterError("Could not generate unique candidates; retry generation.")
     return addresses
+
+
+def valid_login_url(url: str) -> str:
+    url = url.strip()
+    if url:
+        parsed = urlparse(url)
+        if (parsed.scheme != "https" or not parsed.hostname or parsed.username
+                or parsed.password or any(c.isspace() or ord(c) < 32 for c in url)):
+            raise TesterError("Sign-in URL must be HTTPS and cannot contain whitespace or embedded credentials.")
+        try:
+            parsed.port
+        except ValueError as exc:
+            raise TesterError("Sign-in URL has an invalid port.") from exc
+    return url
 
 
 def make_account(service: str, email: str, username: str, secret: str, url: str,
                  tags: list[str], notes: str) -> dict:
     email = valid_email(email)
-    if url:
-        parsed = urlparse(url.strip())
-        if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password:
-            raise TesterError("Sign-in URL must be HTTPS and cannot contain embedded credentials.")
+    url = valid_login_url(url)
     stamp = now()
     return {"id": uuid.uuid4().hex[:10], "service": service.strip()[:120] or "Unassigned",
             "email": email, "username": username.strip() or email, "password": secret,
@@ -272,8 +309,114 @@ def listing(accounts: list[dict]) -> None:
         return
     print(f"{'ID':10}  {'SERVICE':22}  {'EMAIL':38}  STATUS")
     print("-" * 88)
-    for a in accounts:
+    for index, a in enumerate(accounts, 1):
         print(f"{a['id']:10}  {a['service'][:22]:22}  {a['email'][:38]:38}  {a['status']}")
+        if 'platform' in a:
+            session = a['session']
+            print(f"  [{index}] {a['platform']} | last observation: {session['state']} at {session.get('observed_at') or 'never'} | last fresh check: {session.get('verified_state') or 'never'} at {session.get('verified_at') or 'never'} (cached; select Verify for a new check)")
+
+
+def validate_platform_account(account: dict) -> None:
+    platform(account.get('platform'))
+    if not re.fullmatch(r'[a-f0-9]{32}', account.get('browser_profile', '')):
+        raise TesterError('Vault contains an invalid browser profile identifier.')
+    session = account.get('session')
+    if (not isinstance(session, dict) or not isinstance(session.get('state'), str)
+            or any(session.get(k) is not None and not isinstance(session[k], str)
+                   for k in ('observed_at', 'verified_at', 'verified_state'))):
+        raise TesterError('Vault contains invalid session metadata.')
+
+
+def platform_record(provider: str, email: str, *, signup: bool = False) -> dict:
+    adapter = platform(provider)
+    account = make_account(adapter.name, email, '', '', adapter.mail_url, [], '')
+    account.update(platform=provider, browser_profile=uuid.uuid4().hex,
+                   status='signup_pending' if signup else 'unverified',
+                   signup_started_at=now() if signup else None,
+                   session={'state': 'never_checked', 'observed_at': None, 'verified_at': None, 'verified_state': None})
+    return account
+
+
+def platform_action(path: Path, master: str, data: dict, identifier: str, action: str) -> dict:
+    selected = time.perf_counter()
+    original = find_account(data, identifier)
+    if 'platform' not in original:
+        raise TesterError('This is a generic vault record. Use add-existing google|microsoft EMAIL for isolated platform sessions.')
+    validate_platform_account(original)
+    account = copy_module.deepcopy(original)
+    selection_ms = (time.perf_counter() - selected) * 1000
+    if action == 'remove':
+        forget_profile(path, account)
+        updated = copy_module.deepcopy(data)
+        updated['accounts'] = [a for a in updated['accounts'] if a['id'] != account['id']]
+        try:
+            save(path, master, updated)
+        except (OSError, TesterError):
+            raise TesterError('Local profile removed, but saving record removal failed. The record remains; fix storage and retry remove. The provider account was not deleted.') from None
+        data.clear(); data.update(updated)
+        print('Removed local record and browser profile. The provider account was not deleted; provider sign-out/revocation was not performed.')
+        return {'state': 'removed'}
+    if action == 'close':
+        close_profile(path, account)
+        result = {'state': 'closed', 'fresh_check': False, 'checkpoint': 'Selected browser closed; persistent session retained. This is not provider sign-out.', 'timings': {}}
+    else:
+        print(f"{action}: {platform(account['platform']).name} | expected identity: {account['email']} | isolated browser profile", flush=True)
+        result = session_request(path, account, 'open' if action == 'switch' else action)
+    stamp = now()
+    session = account['session']
+    session.update(state=result['state'], observed_at=stamp)
+    if result.get('fresh_check') and result['state'] in {'authenticated', 'signed_out', 'authentication_required', 'identity_mismatch'}:
+        session.update(verified_at=stamp, verified_state=result['state'])
+    if result['state'] == 'authenticated':
+        account['status'] = 'identity_observed'
+        account['last_used_at'] = stamp
+        if account.get('signup_started_at'):
+            account['signup_identity_confirmed_at'] = stamp
+    elif result['state'] != 'closed':
+        account['status'] = result['state']
+    result['timings']['selection_ms'] = round(selection_ms, 2)
+    updated = copy_module.deepcopy(data)
+    updated['accounts'] = [account if a['id'] == account['id'] else a for a in updated['accounts']]
+    saved = time.perf_counter()
+    try:
+        save(path, master, updated)
+    except (OSError, TesterError):
+        raise TesterError('Browser action may have occurred, but saving its result failed. No new session status was persisted; retry verify after fixing storage.') from None
+    result['timings']['vault_save_ms'] = round((time.perf_counter()-saved)*1000, 2)
+    data.clear(); data.update(updated)
+    print(f"{result['state']}: {result['checkpoint']}")
+    print('Observation: ' + ('fresh navigation' if result.get('fresh_check') else 'current browser UI; not a fresh provider authentication check'))
+    print('Timings (ms; excludes password entry and manual provider steps): ' + json.dumps(result['timings'], sort_keys=True))
+    return result
+
+
+def add_platform(path: Path, master: str, data: dict, provider: str, email: str, signup: bool = False) -> dict:
+    account = platform_record(provider, email, signup=signup)
+    updated = copy_module.deepcopy(data)
+    add_account(updated, account)
+    save(path, master, updated)
+    data.clear(); data.update(updated)
+    print(f"Saved {'signup intent' if signup else 'unverified existing-account record'}: {account['id']}. No account creation or authentication is asserted.")
+    if signup:
+        platform_action(path, master, data, account['id'], 'signup')
+    return account
+
+
+def set_identifier(path: Path, master: str, data: dict, identifier: str, email: str) -> None:
+    original = find_account(data, identifier)
+    if 'platform' not in original:
+        raise TesterError('Select a platform account.')
+    email = valid_email(email)
+    if any(a['id'] != original['id'] and a.get('platform') == original['platform'] and a['email'].lower() == email.lower() for a in data['accounts']):
+        raise TesterError('That platform identity is already saved.')
+    updated = copy_module.deepcopy(data)
+    record = find_account(updated, original['id'])
+    record.update(email=email, username=email, status='unverified', updated_at=now())
+    record['session'] = {'state': 'never_checked', 'observed_at': None, 'verified_at': None, 'verified_state': None}
+    record.pop('signup_identity_confirmed_at', None)
+    save(path, master, updated)
+    data.clear(); data.update(updated)
+    print('Saved new expected identifier; browser profile retained. Run verify to check the actual identity.')
 
 
 def prompt_account() -> dict:
@@ -296,7 +439,10 @@ def copy(value: str) -> None:
             break
     if not command:
         raise TesterError("Clipboard utility missing. Install wl-clipboard, xclip, or xsel.")
-    subprocess.run(command, input=value, text=True, check=True, timeout=5)
+    # X11 clipboard owners fork and keep running. They must not retain the CLI's
+    # output pipes, or callers capturing output will wait indefinitely for EOF.
+    subprocess.run(command, input=value, text=True, check=True, timeout=5,
+                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
 def tui(path: Path) -> None:
@@ -310,20 +456,43 @@ def tui(path: Path) -> None:
     while True:
         print("\n" + "=" * 52 + "\n TESTER — EMAIL IDENTITY MANAGER\n" + "=" * 52)
         listing(data["accounts"])
-        print("\n[A]dd  [G]enerate  [S]how  [C]opy email  [P]assword copy")
+        print("\n[A]dd  [G]enerate candidates  [S]how  [C]opy email  [P]assword copy")
         print("[O]pen sign-in  [D]elete  [Q]uit")
+        print('[E]xisting platform account  [N]ew signup  [W]switch/open  [I]sign in')
+        print('[R]esume signup/auth  [V]erify identity  [X]sign out  [Y]verify sign-out  [F]orget local account  [L]close sessions')
+        print('[U]pdate expected identifier  [B]close selected browser (not sign-out)')
+        print('Enter a displayed platform account number to switch directly.')
         choice = input("\nSelect: ").strip().lower()
+        previous = copy_module.deepcopy(data)
         try:
             if choice == "q":
                 break
-            if choice == "a":
+            if choice.isdigit():
+                index = int(choice) - 1
+                if not 0 <= index < len(data['accounts']):
+                    raise TesterError('Choose a displayed account number.')
+                platform_action(path, master, data, data['accounts'][index]['id'], 'switch')
+            elif choice == "a":
                 add_account(data, prompt_account()); save(path, master, data); print("Saved.")
             elif choice == "g":
                 base, domain = input("Base name: "), input("Domain: ")
                 count = int(input("Count (1-100): ") or "1")
-                plus = input("Plus aliases? [y/N] ").lower() == "y"
+                plus = input("Plus aliases for an existing mailbox? [y/N] ").strip().lower() == "y"
                 print("\n".join(generate(base, domain, count, plus)))
-                print("These are candidates only; provision/verify them with your provider.")
+                print("Candidates only: not saved, provisioned, or delivery-verified. Use Add to save a record.")
+            elif choice in {'e', 'n'}:
+                add_platform(path, master, data, input('Platform (google/microsoft): ').strip().lower(),
+                             input('Account email (desired address for signup): ').strip(), choice == 'n')
+            elif choice in {'w', 'i', 'r', 'v', 'x', 'y', 'f', 'b'}:
+                action = {'w': 'switch', 'i': 'signin', 'r': 'resume', 'v': 'verify', 'x': 'signout', 'y': 'verify-signout', 'f': 'remove', 'b': 'close'}[choice]
+                platform_action(path, master, data, input('Account ID or email: ').strip(), action)
+            elif choice == 'u':
+                set_identifier(path, master, data, input('Account ID or email: ').strip(), input('Expected account email: ').strip())
+            elif choice == 'l':
+                for record in data['accounts']:
+                    if 'platform' in record:
+                        close_profile(path, record)
+                print('Browser sessions closed. Persistent sessions retained; this is not provider sign-out.')
             elif choice in {"s", "c", "p", "o", "d"}:
                 account = find_account(data, input("Account ID or email: ").strip())
                 if choice == "s":
@@ -334,6 +503,9 @@ def tui(path: Path) -> None:
                     if not account["password"]: print("No password saved.")
                     else: copy(account["password"]); print("Password copied; clear clipboard after use.")
                 elif choice == "o":
+                    if 'platform' in account:
+                        platform_action(path, master, data, account['id'], 'open')
+                        continue
                     if not account["login_url"]: print("No sign-in URL saved.")
                     else:
                         if not webbrowser.open(account["login_url"]):
@@ -341,10 +513,17 @@ def tui(path: Path) -> None:
                         account["last_used_at"] = now()
                         save(path, master, data); print("Opened sign-in page; website controls its own session.")
                 elif choice == "d" and input("Delete this record? [y/N] ").lower() == "y":
+                    if 'platform' in account:
+                        platform_action(path, master, data, account['id'], 'remove')
+                        continue
                     data["accounts"].remove(account); save(path, master, data); print("Deleted.")
             else:
                 print("Choose one of the listed actions.")
-        except (TesterError, ValueError, OSError, subprocess.SubprocessError) as exc:
+        except (TesterError, SessionError, ValueError, OSError, subprocess.SubprocessError) as exc:
+            try:
+                data = decrypt(path, master)
+            except TesterError:
+                data = previous
             print(f"Error: {exc}")
     print("Vault locked. Goodbye.")
 
@@ -358,6 +537,17 @@ def parser() -> argparse.ArgumentParser:
     sub.add_parser("tui", help="interactive terminal menu")
     sub.add_parser("list", help="list saved identities")
     sub.add_parser("add", help="add email and website login record")
+    sub.add_parser('accounts', help='list saved platform accounts and explicitly cached session observations')
+    sub.add_parser('close-sessions', help='close isolated browsers; preserve sessions without signing out')
+    q = sub.add_parser('set-identifier', help='correct expected signup identity without discarding the browser profile; invalidates prior observations')
+    q.add_argument('identifier'); q.add_argument('email')
+    for name in ('add-existing', 'signup'):
+        q = sub.add_parser(name, help='save an existing platform identity' if name == 'add-existing' else 'start user-completed consumer signup in an isolated browser')
+        q.add_argument('platform', choices=sorted(PLATFORMS))
+        q.add_argument('email', help='existing email, or desired email for pending signup')
+    for name in ('signin', 'switch', 'resume', 'verify', 'signout', 'verify-signout', 'remove', 'close'):
+        q = sub.add_parser(name, help={'remove': 'remove local record/profile, not the external account', 'verify': 'fresh browser navigation and identity observation', 'verify-signout': 'check that fresh mail navigation requires authentication'}.get(name, name + ' the selected isolated platform session'))
+        q.add_argument('identifier')
     backup = sub.add_parser("backup", help="create a verified encrypted backup")
     backup.add_argument("destination", type=Path)
     restore = sub.add_parser("restore", help="restore a verified encrypted backup")
@@ -379,7 +569,7 @@ def main() -> None:
     try:
         if args.command == "generate":
             print("\n".join(generate(args.base, args.domain, args.count, args.plus)))
-            print("\nCandidates only. Create/verify them with your provider.")
+            print("\nCandidates only: not saved, provisioned, or delivery-verified. Use 'tester add' to save a record.", file=sys.stderr)
             return
         path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
         # Cross-platform OS-backed lock prevents lost updates from simultaneous Tester processes.
@@ -406,6 +596,28 @@ def main() -> None:
             if args.command == "list":
                 listing(data["accounts"])
                 return
+            if args.command == 'accounts':
+                listing([a for a in data['accounts'] if 'platform' in a])
+                return
+            if args.command == 'close-sessions':
+                for account in data['accounts']:
+                    if 'platform' in account:
+                        close_profile(path, account)
+                print('Browser sessions closed; persistent authentication retained. This is not provider sign-out.')
+                return
+            if args.command in {'add-existing', 'signup'}:
+                record = add_platform(path, master, data, args.platform, args.email, args.command == 'signup')
+                if args.command == 'signup' and find_account(data, record['id'])['session']['state'] == 'browser_error':
+                    raise SystemExit(3)
+                return
+            if args.command == 'set-identifier':
+                set_identifier(path, master, data, args.identifier, args.email)
+                return
+            if args.command in {'signin', 'switch', 'resume', 'verify', 'signout', 'verify-signout', 'remove', 'close'}:
+                result = platform_action(path, master, data, args.identifier, args.command)
+                if result['state'] not in {'authenticated', 'signed_out', 'removed', 'closed'}:
+                    raise SystemExit(3)
+                return
             if args.command == "add":
                 account = prompt_account()
                 add_account(data, account)
@@ -424,6 +636,11 @@ def main() -> None:
                 copy(account["password"])
                 print("Password copied; clear clipboard after use.")
             elif args.command == "open":
+                if 'platform' in account:
+                    result = platform_action(path, master, data, account['id'], 'open')
+                    if result['state'] != 'authenticated':
+                        raise SystemExit(3)
+                    return
                 if not account["login_url"]:
                     raise TesterError("No sign-in URL saved.")
                 if not webbrowser.open(account["login_url"]):
@@ -433,13 +650,19 @@ def main() -> None:
                 print("Opened sign-in page; authentication remains site-controlled.")
             elif args.command == "delete":
                 if input(f"Delete {account['email']} ({account['service']})? [y/N] ").lower() == "y":
+                    if 'platform' in account:
+                        platform_action(path, master, data, account['id'], 'remove')
+                        return
                     data["accounts"].remove(account)
                     save(path, master, data)
                     print("Deleted.")
+    except (EOFError, KeyboardInterrupt) as exc:
+        print("\ntester: cancelled; vault locked.", file=sys.stderr)
+        raise SystemExit(130) from exc
     except LockTimeout as exc:
         print("tester: this vault is already open in another Tester process.", file=sys.stderr)
         raise SystemExit(2) from exc
-    except (TesterError, ValueError, OSError, subprocess.SubprocessError) as exc:
+    except (TesterError, SessionError, ValueError, OSError, subprocess.SubprocessError) as exc:
         print(f"tester: {exc}", file=sys.stderr)
         raise SystemExit(1)
 
