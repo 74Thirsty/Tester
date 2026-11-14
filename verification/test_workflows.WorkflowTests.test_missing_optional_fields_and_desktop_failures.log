@@ -4,7 +4,7 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: No password saved for this account.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'open', 'fixture@example.com']
@@ -13,7 +13,7 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: No sign-in URL saved.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'copy', 'fixture@example.com']
@@ -22,5 +22,5 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: Clipboard utility missing. Install wl-clipboard, xclip, or xsel.

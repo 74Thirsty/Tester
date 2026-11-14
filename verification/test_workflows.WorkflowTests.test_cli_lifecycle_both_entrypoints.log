@@ -185,9 +185,9 @@ Encrypted vault created: /tmp/tmpz2roawwi/vault-False.json
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Confirm master password: 
+Confirm master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'init']
 INPUT: synthetic fixture (passwords omitted)
@@ -195,9 +195,9 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Confirm master password: 
+Confirm master password:
 tester: Vault already exists: /tmp/tmpz2roawwi/vault-False.json
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
@@ -207,7 +207,7 @@ No accounts saved yet.
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
 INPUT: synthetic fixture (passwords omitted)
@@ -215,7 +215,7 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: Incorrect master password or vault integrity check failed.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'add']
@@ -225,9 +225,9 @@ Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (opt
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Password (Enter skips): 
+Password (Enter skips):
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'add']
 INPUT: synthetic fixture (passwords omitted)
@@ -235,9 +235,9 @@ EXIT: 1
 Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Password (Enter skips): 
+Password (Enter skips):
 tester: That email is already saved for this service.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
@@ -249,7 +249,7 @@ c75cd9414a  Example                 fixture@example.com                     acti
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'show', 'fixture@example.com']
 INPUT: synthetic fixture (passwords omitted)
@@ -266,7 +266,7 @@ Password: (saved; use copy-password)
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'show', 'missing']
 INPUT: synthetic fixture (passwords omitted)
@@ -274,7 +274,7 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: No account found for: missing
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'backup', '/tmp/tmpz2roawwi/backup-False.vault']
@@ -284,7 +284,7 @@ Encrypted backup created: /tmp/tmpz2roawwi/backup-False.vault
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'backup', '/tmp/tmpz2roawwi/backup-False.vault']
 INPUT: synthetic fixture (passwords omitted)
@@ -292,7 +292,7 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: Backup destination already exists: /tmp/tmpz2roawwi/backup-False.vault
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'restore', '/tmp/tmpz2roawwi/backup-False.vault']
@@ -301,7 +301,7 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: Vault already exists: /tmp/tmpz2roawwi/vault-False.json. Use --force to replace it.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'delete', 'fixture@example.com']
@@ -310,7 +310,7 @@ EXIT: 0
 Delete fixture@example.com (Example)? [y/N] /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
 INPUT: synthetic fixture (passwords omitted)
@@ -321,7 +321,7 @@ c75cd9414a  Example                 fixture@example.com                     acti
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'delete', 'fixture@example.com']
 INPUT: synthetic fixture (passwords omitted)
@@ -330,7 +330,7 @@ Delete fixture@example.com (Example)? [y/N] Deleted.
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
 INPUT: synthetic fixture (passwords omitted)
@@ -339,7 +339,7 @@ No accounts saved yet.
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'restore', '/tmp/tmpz2roawwi/backup-False.vault', '--force']
 INPUT: synthetic fixture (passwords omitted)
@@ -348,7 +348,7 @@ Encrypted vault restored from: /tmp/tmpz2roawwi/backup-False.vault
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
 INPUT: synthetic fixture (passwords omitted)
@@ -359,7 +359,7 @@ c75cd9414a  Example                 fixture@example.com                     acti
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', '--vault', '/tmp/tmpz2roawwi/restored-False.json', 'restore', '/tmp/tmpz2roawwi/backup-False.vault']
 INPUT: synthetic fixture (passwords omitted)
@@ -368,7 +368,7 @@ Encrypted vault restored from: /tmp/tmpz2roawwi/backup-False.vault
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', '--version']
 INPUT: synthetic fixture (passwords omitted)
@@ -557,9 +557,9 @@ Encrypted vault created: /tmp/tmpz2roawwi/vault-True.json
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Confirm master password: 
+Confirm master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'init']
 INPUT: synthetic fixture (passwords omitted)
@@ -567,9 +567,9 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Confirm master password: 
+Confirm master password:
 tester: Vault already exists: /tmp/tmpz2roawwi/vault-True.json
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
@@ -579,7 +579,7 @@ No accounts saved yet.
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
 INPUT: synthetic fixture (passwords omitted)
@@ -587,7 +587,7 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: Incorrect master password or vault integrity check failed.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'add']
@@ -597,9 +597,9 @@ Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (opt
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Password (Enter skips): 
+Password (Enter skips):
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'add']
 INPUT: synthetic fixture (passwords omitted)
@@ -607,9 +607,9 @@ EXIT: 1
 Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Password (Enter skips): 
+Password (Enter skips):
 tester: That email is already saved for this service.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
@@ -621,7 +621,7 @@ ID          SERVICE                 EMAIL                                   STAT
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'show', 'fixture@example.com']
 INPUT: synthetic fixture (passwords omitted)
@@ -638,7 +638,7 @@ Password: (saved; use copy-password)
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'show', 'missing']
 INPUT: synthetic fixture (passwords omitted)
@@ -646,7 +646,7 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: No account found for: missing
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'backup', '/tmp/tmpz2roawwi/backup-True.vault']
@@ -656,7 +656,7 @@ Encrypted backup created: /tmp/tmpz2roawwi/backup-True.vault
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'backup', '/tmp/tmpz2roawwi/backup-True.vault']
 INPUT: synthetic fixture (passwords omitted)
@@ -664,7 +664,7 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: Backup destination already exists: /tmp/tmpz2roawwi/backup-True.vault
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'restore', '/tmp/tmpz2roawwi/backup-True.vault']
@@ -673,7 +673,7 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: Vault already exists: /tmp/tmpz2roawwi/vault-True.json. Use --force to replace it.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'delete', 'fixture@example.com']
@@ -682,7 +682,7 @@ EXIT: 0
 Delete fixture@example.com (Example)? [y/N] /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
 INPUT: synthetic fixture (passwords omitted)
@@ -693,7 +693,7 @@ ID          SERVICE                 EMAIL                                   STAT
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'delete', 'fixture@example.com']
 INPUT: synthetic fixture (passwords omitted)
@@ -702,7 +702,7 @@ Delete fixture@example.com (Example)? [y/N] Deleted.
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
 INPUT: synthetic fixture (passwords omitted)
@@ -711,7 +711,7 @@ No accounts saved yet.
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'restore', '/tmp/tmpz2roawwi/backup-True.vault', '--force']
 INPUT: synthetic fixture (passwords omitted)
@@ -720,7 +720,7 @@ Encrypted vault restored from: /tmp/tmpz2roawwi/backup-True.vault
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'list']
 INPUT: synthetic fixture (passwords omitted)
@@ -731,7 +731,7 @@ ID          SERVICE                 EMAIL                                   STAT
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', '--vault', '/tmp/tmpz2roawwi/restored-True.json', 'restore', '/tmp/tmpz2roawwi/backup-True.vault']
 INPUT: synthetic fixture (passwords omitted)
@@ -740,4 +740,4 @@ Encrypted vault restored from: /tmp/tmpz2roawwi/backup-True.vault
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:

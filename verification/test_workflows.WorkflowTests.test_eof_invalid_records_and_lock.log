@@ -4,7 +4,7 @@ EXIT: 130
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: cancelled; vault locked.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'init']
@@ -13,9 +13,9 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Confirm master password: 
+Confirm master password:
 tester: Use a master password with at least 12 characters.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'init']
@@ -24,9 +24,9 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Confirm master password: 
+Confirm master password:
 tester: Passwords did not match.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'init']
@@ -36,9 +36,9 @@ Encrypted vault created: /tmp/tmpz1wln2wo/vault.json
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Confirm master password: 
+Confirm master password:
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'tui']
 INPUT: synthetic fixture (passwords omitted)
@@ -59,7 +59,7 @@ Enter a displayed platform account number to switch directly.
 Select: /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 
 tester: cancelled; vault locked.
 
@@ -69,9 +69,9 @@ EXIT: 1
 Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Password (Enter skips): 
+Password (Enter skips):
 tester: Enter a valid email address.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'add']
@@ -80,9 +80,9 @@ EXIT: 1
 Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Password (Enter skips): 
+Password (Enter skips):
 tester: Sign-in URL must be HTTPS and cannot contain whitespace or embedded credentials.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'add']
@@ -91,9 +91,9 @@ EXIT: 1
 Service/site: Email address: Username (Enter uses email): HTTPS sign-in URL (optional): Tags (comma-separated): Notes (optional): /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Password (Enter skips): 
+Password (Enter skips):
 tester: Sign-in URL has an invalid port.
 
 COMMAND: ['/tmp/tester-platform-clean/bin/python', '/home/thompy420/GitHub/Tester/tester.py', 'list']
@@ -107,5 +107,5 @@ EXIT: 1
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 tester: Could not read vault: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)

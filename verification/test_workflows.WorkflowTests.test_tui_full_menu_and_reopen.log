@@ -93,7 +93,7 @@ Enter a displayed platform account number to switch directly.
 Select: Account ID or email: Service: Example
 Email: fixture@example.com
 Username: fixture@example.com
-Sign-in: 
+Sign-in:
 Status: active
 Tags: qa
 Notes: Synthetic fixture
@@ -161,7 +161,7 @@ ID          SERVICE                 EMAIL                                   STAT
 [U]pdate expected identifier  [B]close selected browser (not sign-out)
 Enter a displayed platform account number to switch directly.
 
-Select: Account ID or email: Delete this record? [y/N] 
+Select: Account ID or email: Delete this record? [y/N]
 ====================================================
  TESTER — EMAIL IDENTITY MANAGER
 ====================================================
@@ -180,11 +180,11 @@ Select: Vault locked. Goodbye.
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:
 Warning: Password input may be echoed.
-Confirm master password: 
+Confirm master password:
 Warning: Password input may be echoed.
-Password (Enter skips): 
+Password (Enter skips):
 
 COMMAND: ['/tmp/tester-platform-clean/bin/tester', 'tui']
 INPUT: synthetic fixture (passwords omitted)
@@ -222,4 +222,4 @@ Select: Vault locked. Goodbye.
 /usr/lib/python3.11/getpass.py:91: GetPassWarning: Can not control echo on the terminal.
   passwd = fallback_getpass(prompt, stream)
 Warning: Password input may be echoed.
-Master password: 
+Master password:

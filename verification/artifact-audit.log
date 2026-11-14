@@ -1,1 +1,2 @@
 PASS: retained log/JSON scan found no synthetic fixture passwords, private keys, or token/code URL parameters. Browser workers suppress raw exceptions, page content, cookies and redirected URLs by design. Source fixture code intentionally contains only synthetic test credentials.
+Repository text logs use LF line endings with trailing whitespace removed; command arguments and substantive output are unchanged.
